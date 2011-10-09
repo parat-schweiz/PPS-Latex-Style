@@ -79,8 +79,7 @@
 }
 
 \newcommand{\wellen}{%
-	\AtStockLowerLeft{%
-		\put(0,0){\includegraphics[width=\paperwidth]{logo/welle.pdf}}%
+		\put(0,0){\includegraphics[width=\paperwidth]{logo/welle.pdf}%
 }}
 
 \AddToShipoutPicture{\wellen}
@@ -104,8 +103,13 @@
 
 \pagestyle{scrheadings}
 
-\ihead{\headerlogo}
-\ohead{%
+\ihead[\headerlogo]{\headerlogo}
+\ohead[%
+	\upshape\textbf{\@title}%
+
+	\vspace{1em}%
+	\scriptsize \@author\\\@date%
+]{%
 	\upshape\textbf{\@title}%
 
 	\vspace{1em}%
