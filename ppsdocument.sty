@@ -11,11 +11,14 @@
 % -----------------------------------
 % Schrift und Absatz
 % -----------------------------------
-\setkomafont{pagenumber}{\Allerlight}
-\setkomafont{pagefoot}{\Allerlight}
-\setkomafont{sectioning}{\Allerbold}
-
-\setkomafont{pageheadfoot}{\Allerlight}
+\ifxetex
+	\setkomafont{pagenumber}{\Allerlight}
+	\setkomafont{pagefoot}{\Allerlight}
+	\setkomafont{sectioning}{\Allerbold}
+	\setkomafont{pageheadfoot}{\Allerlight}
+\else
+	% nothing
+\fi
 
 % -----------------------------------
 % Grafiken

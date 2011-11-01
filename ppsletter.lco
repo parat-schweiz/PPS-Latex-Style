@@ -31,6 +31,12 @@
 % -----------------------------------
 % Schrift und Absatz
 % -----------------------------------
+\ifxetex
+	\setkomafont{subject}{\Allerbold}
+\else
+	% nothing
+\fi
+
 
 \DeclareFixedFont{\headtext}{\encodingdefault}{\familydefault}{\seriesdefault}{\shapedefault}{8pt}
 

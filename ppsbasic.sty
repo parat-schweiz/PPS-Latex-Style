@@ -10,24 +10,35 @@
 % -----------------------------------
 % Schrift und Absatz
 % -----------------------------------
-\RequirePackage{fontspec}
-\RequirePackage{xltxtra}
-\RequirePackage{xunicode}
+
 \RequirePackage[parfill]{parskip}
+\RequirePackage{ifxetex}
 
-\setsansfont{Aller Light}
+\ifxetex
+	\RequirePackage{fontspec}
+	\RequirePackage{xltxtra}
+	\RequirePackage{xunicode}
+	
+	\setsansfont{Aller Light}
+
+	\newfontfamily{\Aller}{Aller}
+	\newfontfamily{\Allerlight}{Aller Light}
+	\newfontfamily{\Allerbold}{Aller Bold}
+	\newfontfamily{\Allerdisplay}{Aller Display}
+
+	\DeclareTextFontCommand{\textbf}{\Aller}
+	\DeclareTextFontCommand{\textsc}{\Allerdisplay}
+
+	% Not sure which fonts should be used here
+	%\textrm{...}
+	%\texttt{...}
+	%\textup{...}
+\else
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+\fi
+
 \renewcommand{\familydefault}{\sfdefault}
-
-\newfontfamily{\Aller}{Aller}
-\newfontfamily{\Allerlight}{Aller Light}
-\newfontfamily{\Allerbold}{Aller Bold}
-\newfontfamily{\Allerdisplay}{Aller Display}
-
-\DeclareTextFontCommand{\textbf}{\Aller}
-\DeclareTextFontCommand{\textsc}{\Allerdisplay}
-
-% Not sure which fonts should be used here
-%\textrm{...}%\texttt{...}%\textup{...}
 
 \KOMAoptions{fontsize=11pt}
 
