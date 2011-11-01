@@ -4,7 +4,7 @@
 % Email: christian.haeusler@piratenpartei.ch
 %-------------------------------------------------------
 
-\ProvidesFile{ppsletter.lco}[2011/11/01 v0.2 (Christian 'Corvus' Häusler)]
+\ProvidesFile{ppsletter.lco}[2011/11/01 v1.0 (Christian 'Corvus' Häusler)]
 
 \RequirePackage{ppsbasic}
 \RequirePackage{multirow}
@@ -37,6 +37,7 @@
 	% nothing
 \fi
 
+\KOMAoptions{fontsize=11pt}
 
 \DeclareFixedFont{\headtext}{\encodingdefault}{\familydefault}{\seriesdefault}{\shapedefault}{8pt}
 
@@ -44,10 +45,10 @@
 % Sprache
 % -----------------------------------
 
-\setkomavar{fromurl}{\domain}
-\setkomavar{fromlogo}{\includegraphics[width=6.5cm]{\logo}}
+\setkomavar{fromurl}{\ppsdomain}
+\setkomavar{fromlogo}{\includegraphics[width=6.5cm]{\ppslogost}}
 
-\setkomavar{partei}{\namelong}
+\setkomavar{partei}{\ppsnamelong}
 
 %-------------------------------------------------------
 % Positionnen

@@ -3,9 +3,10 @@
 % Email: christian.haeusler@piratenpartei.ch
 %-------------------------------------------------------
 
-\ProvidesPackage{ppsbasic}[2011/11/01 v 0.1 (Christian 'Corvus' HŠusler)]
+\ProvidesPackage{ppsbasic}[2011/11/01 v1.0 (Christian 'Corvus' HŠusler)]
 
 \RequirePackage{calc}
+\RequirePackage{scrbase}
 
 % -----------------------------------
 % Schrift und Absatz
@@ -34,13 +35,11 @@
 	%\texttt{...}
 	%\textup{...}
 \else
-	\usepackage[utf8]{inputenc}
-	\usepackage[T1]{fontenc}
+	\RequirePackage[utf8]{inputenc}
+	\RequirePackage[T1]{fontenc}
 \fi
 
 \renewcommand{\familydefault}{\sfdefault}
-
-\KOMAoptions{fontsize=11pt}
 
 % -----------------------------------
 % Farben
@@ -52,7 +51,10 @@
 
 \definecolor{weiss}{cmyk}{0,0,0,0}
 \definecolor{gelb}{cmyk}{0,0.1,1,0}
-\definecolor{orange}{cmyk}{0,0.35,1,0}
+%\definecolor{orange}{cmyk}{0,0.35,1,0}
+%\definecolor{orangeschade}{cmyk}{0,0.55,1,0}
+\definecolor{orange}{RGB}{253,195,0}
+\definecolor{orangeschade}{RGB}{240,138,0}
 \definecolor{hellrot}{cmyk}{0,0.75,1,0}
 \definecolor{dunkelrot}{cmyk}{0.15,1,0.6,0}
 \definecolor{schwarz}{cmyk}{1,1,1,1}
@@ -78,17 +80,36 @@
 	\setlength{\abstractwidth}{\linewidth/10*8}
 }
 
-\newcommand{\titlelogo}{%
-	\includegraphics[width=\tlogowidth]{\logonego}
+\newcommand{\biglogost}{%
+	\includegraphics[width=\tlogowidth]{\ppslogoww}
 }
 
+\newcommand{\biglogonego}{%
+	\includegraphics[width=\tlogowidth]{\ppslogowwnego}
+}
+
+\newcommand{\biglogonegb}{%
+	\includegraphics[width=\tlogowidth]{\ppslogowwnegb}
+}
+
+\newcommand{\smalllogost}{%
+	\includegraphics[height=\hlogoheight]{\ppslogost}%
+}
+
+\newcommand{\smalllogonego}{%
+	\includegraphics[height=\hlogoheight]{\ppslogostnego}%
+}
+
+\newcommand{\smalllogonegb}{%
+	\includegraphics[height=\hlogoheight]{\ppslogostnegb}%
+}
 \newcommand{\headerlogo}{%
-	\includegraphics[height=\hlogoheight]{\logo}%
+	\smalllogost%
 	\vspace{\hlogospace}%
 }
 
 \newcommand{\wellen}{%
-		\put(0,0){\includegraphics[width=\paperwidth]{logo/welle.pdf}%
+	\put(0,0){\includegraphics[width=\paperwidth]{logo/spez/greywave.pdf}%
 }}
 
 % -----------------------------------
@@ -103,27 +124,48 @@
 % -----------------------------------
 \RequirePackage[english,french,italian,ngerman]{babel}
 
-\providecaptionname{english}{\logo}{logo/en.pdf}
-\providecaptionname{french}{\logo}{logo/fr.pdf}
-\providecaptionname{italian}{\logo}{logo/it.pdf}
-\providecaptionname{ngerman}{\logo}{logo/de.pdf}
+\providecaptionname{english}{\ppslogoww}{logo/en/ww.pdf}
+\providecaptionname{french}{\ppslogoww}{logo/fr/ww.pdf}
+\providecaptionname{italian}{\ppslogoww}{logo/it/ww.pdf}
+\providecaptionname{ngerman}{\ppslogoww}{logo/de/ww.pdf}
 
-\providecaptionname{english}{\logonego}{logo/nego-en.pdf}
-\providecaptionname{french}{\logonego}{logo/nego-fr.pdf}
-\providecaptionname{italian}{\logonego}{logo/nego-it.pdf}
-\providecaptionname{ngerman}{\logonego}{logo/nego-de.pdf}
+\providecaptionname{english}{\ppslogowwnego}{logo/en/wwnego.pdf}
+\providecaptionname{french}{\ppslogowwnego}{logo/fr/wwnego.pdf}
+\providecaptionname{italian}{\ppslogowwnego}{logo/it/wwnego.pdf}
+\providecaptionname{ngerman}{\ppslogowwnego}{logo/de/wwnego.pdf}
 
-\providecaptionname{english}{\name}{\textbf{pirate}party}
-\providecaptionname{french}{\name}{parti\textbf{pirate}}
-\providecaptionname{italian}{\name}{partito\textbf{pirata}}
-\providecaptionname{ngerman}{\name}{\textbf{piraten}partei}
+\providecaptionname{english}{\ppslogowwnegb}{logo/en/wwnegb.pdf}
+\providecaptionname{french}{\ppslogowwnegb}{logo/fr/wwnegb.pdf}
+\providecaptionname{italian}{\ppslogowwnegb}{logo/it/wwnegb.pdf}
+\providecaptionname{ngerman}{\ppslogowwnegb}{logo/de/wwnegb.pdf}
 
-\providecaptionname{english}{\namelong}{Pirate Party Switzerland}
-\providecaptionname{french}{\namelong}{Parti Pirate Suisse}
-\providecaptionname{italian}{\namelong}{Partito Pirata Svizzero}
-\providecaptionname{ngerman}{\namelong}{Piratenpartei Schweiz}
+\providecaptionname{english}{\ppslogost}{logo/en/st.pdf}
+\providecaptionname{french}{\ppslogost}{logo/fr/st.pdf}
+\providecaptionname{italian}{\ppslogost}{logo/it/st.pdf}
+\providecaptionname{ngerman}{\ppslogost}{logo/de/st.pdf}
 
-\providecaptionname{english}{\domain}{www.pirateparty.ch}
-\providecaptionname{french}{\domain}{www.partipirate.ch}
-\providecaptionname{italian}{\domain}{www.partitopirata.ch}
-\providecaptionname{ngerman}{\domain}{www.piratenpartei.ch}
+\providecaptionname{english}{\ppslogostnego}{logo/en/stnego.pdf}
+\providecaptionname{french}{\ppslogostnego}{logo/fr/stnego.pdf}
+\providecaptionname{italian}{\ppslogostnego}{logo/it/stnego.pdf}
+\providecaptionname{ngerman}{\ppslogostnego}{logo/de/stnego.pdf}
+
+\providecaptionname{english}{\ppslogostnegb}{logo/en/stnegb.pdf}
+\providecaptionname{french}{\ppslogostnegb}{logo/fr/stnegb.pdf}
+\providecaptionname{italian}{\ppslogostnegb}{logo/it/stnegb.pdf}
+\providecaptionname{ngerman}{\ppslogostnegb}{logo/de/stnegb.pdf}
+
+
+\providecaptionname{english}{\ppsname}{\textbf{pirate}party}
+\providecaptionname{french}{\ppsname}{parti\textbf{pirate}}
+\providecaptionname{italian}{\ppsname}{partito\textbf{pirata}}
+\providecaptionname{ngerman}{\ppsname}{\textbf{piraten}partei}
+
+\providecaptionname{english}{\ppsnamelong}{Pirate Party Switzerland}
+\providecaptionname{french}{\ppsnamelong}{Parti Pirate Suisse}
+\providecaptionname{italian}{\ppsnamelong}{Partito Pirata Svizzero}
+\providecaptionname{ngerman}{\ppsnamelong}{Piratenpartei Schweiz}
+
+\providecaptionname{english}{\ppsdomain}{www.pirateparty.ch}
+\providecaptionname{french}{\ppsdomain}{www.partipirate.ch}
+\providecaptionname{italian}{\ppsdomain}{www.partitopirata.ch}
+\providecaptionname{ngerman}{\ppsdomain}{www.piratenpartei.ch}

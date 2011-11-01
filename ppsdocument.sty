@@ -4,7 +4,7 @@
 % Email: christian.haeusler@piratenpartei.ch
 %-------------------------------------------------------
 
-\ProvidesPackage{ppsdocument}[2011/11/01 v 0.1 (Christian 'Corvus' Häusler)]
+\ProvidesPackage{ppsdocument}[2011/11/01 v1.0 (Christian 'Corvus' Häusler)]
 
 \RequirePackage{ppsbasic}
 
@@ -19,6 +19,8 @@
 \else
 	% nothing
 \fi
+
+\KOMAoptions{fontsize=11pt}
 
 % -----------------------------------
 % Grafiken
@@ -64,7 +66,7 @@
 		\end{tikzpicture}}
 }{
 	\begin{flushright}
-		\vfill\titlelogo
+		\vfill\biglogonego
 	\end{flushright}
 	\thispagestyle{empty}
 	\newpage
@@ -75,7 +77,7 @@
 	\thispagestyle{title}
 	\if@titlepage\vspace*{\tpagemargin}\else\fi
 	\begin{flushright}
-	{\Huge\name\\\large\@title}
+	{\Huge\ppsname\\\large\@title}
 
 	\vspace{3em}{\raggedleft\scriptsize\@author\hspace{1em}\@date}
 	\end{flushright}
