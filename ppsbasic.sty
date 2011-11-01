@@ -1,11 +1,9 @@
-% $Id: ppsstyle.sty 29 2011-02-12 14:49:33Z gardar $
-% $URL: https://gardar@gardar.ch:443/svn/test/trunk/ppsarticle/ppsstyle.sty $
-%
-% $Author: gardar $
-% $Date: 2011-02-12 15:49:33 +0100 (Sat, 12 Feb 2011) $
-% $Revision: 29 $
+%!TEX encoding = UTF-8 Unicode%-------------------------------------------------------
+% Author: Christian HŠusler
+% Email: christian.haeusler@piratenpartei.ch
+%-------------------------------------------------------
 
-\ProvidesPackage{ppsstyle}[2011/01/11 v 0.1 PPS Style]
+\ProvidesPackage{ppsbasic}[2011/11/01 v 0.1 (Christian 'Corvus' HŠusler)]
 
 \RequirePackage{calc}
 
@@ -17,21 +15,15 @@
 \RequirePackage{xunicode}
 \RequirePackage[parfill]{parskip}
 
+\setsansfont{Aller}
+\renewcommand{\familydefault}{\sfdefault}
+
 \newfontfamily{\Aller}{Aller}
 \newfontfamily{\Allerlight}{Aller Light}
 \newfontfamily{\Allerbold}{Aller Bold}
 
 
-\setsansfont{Aller}
-\renewcommand{\familydefault}{\sfdefault}
-
-\setkomafont{pagenumber}{\Allerlight}
-\setkomafont{pagefoot}{\Allerlight}
-\setkomafont{sectioning}{\Allerbold}
-
-\setkomafont{pageheadfoot}{\Allerbold}
-
-%\KOMAoptions{fontsize=12pt}
+\KOMAoptions{fontsize=11pt}
 
 % -----------------------------------
 % Farben
@@ -49,8 +41,6 @@
 \definecolor{schwarz}{cmyk}{1,1,1,1}
 \definecolor{violet}{cmyk}{0.65,0.75,0,0.35}
 \definecolor{blau}{cmyk}{0.8,0.5,0,0}
-
-%[upper left=shadetop, upper right=shadetop!100!shadebottom!100, lower left=shadetop!100!shadebottom!100, lower right= shadebottom]
 
 % -----------------------------------
 % Grafiken
@@ -84,71 +74,12 @@
 		\put(0,0){\includegraphics[width=\paperwidth]{logo/welle.pdf}%
 }}
 
-\AddToShipoutPicture{\wellen}
-
 % -----------------------------------
 % Tikz Styles
 % -----------------------------------
 \RequirePackage{tikz}
 
 \tikzset{help lines/.style={color=violet!30, very thin}}
-
-% -----------------------------------
-% Kopf- und fusszeile
-% -----------------------------------
-\RequirePackage{scrpage2}
-\KOMAoptions{headinclude=true}
-\KOMAoptions{footinclude=false}
-\KOMAoptions{headlines=3}
-\KOMAoptions{pagesize}
-\recalctypearea
-
-\pagestyle{scrheadings}
-
-\ihead[\headerlogo]{\headerlogo}
-\ohead[%
-	\upshape\textbf{\@title}%
-
-	\vspace{1em}%
-	\scriptsize \@author\\\@date%
-]{%
-	\upshape\textbf{\@title}%
-
-	\vspace{1em}%
-	\scriptsize \@author\\\@date%
-}
-
-\setheadsepline{0.01em}
-
-\deftripstyle{title}{\headerlogo}{}{}{}{\pagemark}{}
-
-
-\renewenvironment{titlepage}{
-	\ClearShipoutPicture
-	\AddToShipoutPicture*{
-		\begin{tikzpicture}
-			\draw (0,0) -- (0,0);
-			\draw [color=orange, fill=orange](\ta@bcor+1cm,1cm) rectangle (\paperwidth-1cm,\paperheight-1cm);
-		\end{tikzpicture}}
-}{
-	\begin{flushright}
-		\vfill\titlelogo
-	\end{flushright}
-	\thispagestyle{empty}
-	\newpage
-	\AddToShipoutPicture{\wellen}
-}
-
-\renewcommand{\maketitle}{
-	\thispagestyle{title}
-	\if@titlepage\vspace*{\tpagemargin}\else\fi
-	\begin{flushright}
-	{\Huge\name\\\large\@title}
-
-	\vspace{3em}{\raggedleft\scriptsize\@author\hspace{1em}\@date}
-	\end{flushright}
-	\vspace{2em}
-}
 
 % -----------------------------------
 % Sprache
@@ -170,3 +101,12 @@
 \providecaptionname{italian}{\name}{partito\textbf{pirata}}
 \providecaptionname{ngerman}{\name}{\textbf{piraten}partei}
 
+\providecaptionname{english}{\namelong}{Pirate Party Switzerland}
+\providecaptionname{french}{\namelong}{Parti Pirate Suisse}
+\providecaptionname{italian}{\namelong}{Partito Pirata Svizzero}
+\providecaptionname{ngerman}{\namelong}{Piratenpartei Schweiz}
+
+\providecaptionname{english}{\domain}{www.pirateparty.ch}
+\providecaptionname{french}{\domain}{www.partipirate.ch}
+\providecaptionname{italian}{\domain}{www.partitopirata.ch}
+\providecaptionname{ngerman}{\domain}{www.piratenpartei.ch}
