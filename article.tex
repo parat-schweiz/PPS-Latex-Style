@@ -1,0 +1,57 @@
+%!TEX TS-program = XeLaTex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass{scrartcl}
+% -------------------------------------------
+% Use the line below instead of the above if 
+% you like an orange title page
+% -------------------------------------------
+%\documentclass[titlepage]{scrartcl}
+
+\usepackage{ppsstyle}
+
+
+\author{Lipsum}
+\title{Lorem ipsum dolor sit amet}
+
+% -------------------------------------------
+% Activate to display a given date or no date
+% -------------------------------------------
+% \date{}
+
+\usepackage{lipsum}
+
+\begin{document}
+% -------------------------------------------
+% Set the language will also change the logo
+% Possible options are:
+% 	english
+% 	french
+% 	italian
+% 	ngerman
+% -------------------------------------------
+\selectlanguage{ngerman}
+
+\maketitle
+
+\begin{abstract}
+\lipsum[23]
+\end{abstract}
+
+\section{Fusce mauris}
+\lipsum[6]
+\lipsum[7]
+
+\subsection{Nam dui ligula}
+\lipsum[56]
+\lipsum[57]
+\lipsum[58]
+
+\subsubsection{Suspendisse vel felis}
+\lipsum[12]
+\lipsum[13]
+
+\section{Nulla in ipsum}
+\lipsum[14]
+
+\end{document}

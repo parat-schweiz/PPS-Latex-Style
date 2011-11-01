@@ -1,0 +1,50 @@
+% !TEX TS-program = XeLaTeX
+% !TEX encoding = UTF-8 Unicode
+
+\documentclass[ppsletter,fontsize=11pt]{scrlttr2}
+
+% -------------------------------------------
+% Memberinformation
+% Leave blank or comment if not needed
+% -------------------------------------------
+\setkomavar{memberid}{1}
+\setkomavar{membernick}{Ghoster}
+\setkomavar{memberemail}{test@test.com}
+
+\setkomavar{fromname}{Vorname Name}
+\setkomavar{fromstreet}{}
+\setkomavar{fromcity}{CH-1337 Vallorbe}
+\setkomavar{fromemail}{vorname.nachname@piratenpartei.ch}
+\setkomavar{departement}{Funktion}
+\setkomavar{signature}{Vorname Nachname\\Funktion}
+
+\setkomavar{subject}{Betreff}
+
+\begin{document}
+% -------------------------------------------
+% Set the language will also change the logo
+% and the domain url
+% Possible options are:
+% 	english
+% 	french
+% 	italian
+% 	ngerman
+% -------------------------------------------
+\selectlanguage{ngerman}
+
+
+\begin{letter}{%
+	Peter Einkauf\\
+	Siegburgstr. 12\\
+	12345 Muppen\\
+%	Deutschland\\
+}
+\opening{Sehr geehrte Damen und Herren}
+
+vielen Dank für Ihre Anfrage. Wir werden uns zügig mit Ihnen in Verbindung setzen.
+
+
+\closing{Mit freundlichen Grüßen}
+\end{letter}
+\end{document}
+

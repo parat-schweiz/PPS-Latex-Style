@@ -1,0 +1,115 @@
+%-------------------------------------------------------
+% Author: Christian Häusler based on the work from Pascal Vizeli
+% Email: christian.haeusler@piratenpartei.ch
+%-------------------------------------------------------
+\ProvidesFile{pps_brief.lco}[2011/11/01 v0.2 (Christian 'Corvus' Häusler)]
+\LoadLetterOption{SN}
+
+%-------------------------------------------------------
+% New-Var
+\newkomavar{departement}
+\newkomavar{partei}
+\newkomavar{fromstreet}
+\newkomavar{fromcity}
+
+% for translate
+\newkomavar{memberid}
+\newkomavar{membernick}
+\newkomavar{memberemail}
+
+\setkomavar{date}{\today}
+
+% kompatibilitaet zu komascript
+\setkomavar{fromaddress}{\usekomavar{fromstreet}\\\usekomavar{fromcity}}
+
+%-------------------------------------------------------
+% Usepackage
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{calc}
+
+% -----------------------------------
+% Schrift und Absatz
+% -----------------------------------
+\usepackage{fontspec}
+\usepackage{xltxtra}
+\usepackage{xunicode}
+\usepackage[parfill]{parskip}
+
+\setsansfont{Aller Light}
+\renewcommand{\familydefault}{\sfdefault}
+
+\newfontfamily{\Aller}{Aller Light}
+\newfontfamily{\Allerbold}{Aller Bold}
+
+\DeclareFixedFont{\headtext}{\encodingdefault}{\familydefault}{\seriesdefault}{\shapedefault}{8pt}
+
+% -----------------------------------
+% Sprache
+% -----------------------------------
+\RequirePackage[english,french,italian,ngerman]{babel}
+
+\providecaptionname{english}{\logo}{logo/en.pdf}
+\providecaptionname{french}{\logo}{logo/fr.pdf}
+\providecaptionname{italian}{\logo}{logo/it.pdf}
+\providecaptionname{ngerman}{\logo}{logo/de.pdf}
+
+\providecaptionname{english}{\logonego}{logo/nego-en.pdf}
+\providecaptionname{french}{\logonego}{logo/nego-fr.pdf}
+\providecaptionname{italian}{\logonego}{logo/nego-it.pdf}
+\providecaptionname{ngerman}{\logonego}{logo/nego-de.pdf}
+
+\providecaptionname{english}{\name}{\textbf{pirate}party}
+\providecaptionname{french}{\name}{parti\textbf{pirate}}
+\providecaptionname{italian}{\name}{partito\textbf{pirata}}
+\providecaptionname{ngerman}{\name}{\textbf{piraten}partei}
+
+\providecaptionname{english}{\url}{www.pirateparty.ch}
+\providecaptionname{french}{\url}{www.partipirate.ch}
+\providecaptionname{italian}{\url}{www.partitopirata.ch}
+\providecaptionname{ngerman}{\url}{www.piratenpartei.ch}
+\setkomavar{fromurl}{\url}
+\setkomavar{fromlogo}{\includegraphics[width=6.5cm]{\logo}}
+
+\providecaptionname{english}{\partyname}{Pirate Party Switzerland}
+\providecaptionname{french}{\partyname}{Parti Pirate Suisse}
+\providecaptionname{italian}{\partyname}{Partito Pirata Svizzero}
+\providecaptionname{ngerman}{\partyname}{Piratenpartei Schweiz}
+\setkomavar{partei}{\partyname}
+
+%-------------------------------------------------------
+% Positionnen
+\@setplength{lochpos}{-2.5cm}
+\@setplength{locvpos}{6.3cm}
+
+
+%-------------------------------------------------------
+% Location
+\setkomavar{location}{\headtext
+	\begin{tabular}{p{2cm}l}
+		\ifkomavarempty{memberid}{}{MemberNo: & \usekomavar{memberid} \\}
+		\ifkomavarempty{membernick}{}{Nick: & \usekomavar{membernick} \\}
+		\ifkomavarempty{memberemail}{}{E-Mail: & \usekomavar{memberemail} \\}
+	\end{tabular}
+}
+
+%-------------------------------------------------------
+% Kopfzeile
+\firsthead{\headtext
+	\begin{tabular}{p{7.5cm}p{5cm}p{6cm}}
+		\multirow{5}{*}[0.5cm]{\usekomavar{fromlogo}} & \usekomavar{partei} & \\  
+		& \usekomavar{departement} & \\
+		& \usekomavar{fromname} & \\ 
+		& \usekomavar{fromstreet} & \usekomavar{fromemail} \\
+		& \usekomavar{fromcity} & \usekomavar{fromurl} \\
+	\end{tabular}
+}
+
+
+%-------------------------------------------------------
+% Fusszeile
+%\firstfoot{%
+%
+%
+%}
+\endinput
