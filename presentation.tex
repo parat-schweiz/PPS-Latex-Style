@@ -1,0 +1,48 @@
+%!TEX encoding = UTF-8 Unicode%-------------------------------------------------------
+% Author: Christian HŠusler based on the work from Thomas Bruderer
+% Email: christian.haeusler@piratenpartei.ch
+%-------------------------------------------------------
+\documentclass{beamer}
+\usepackage{ppsbeamer}
+
+% -------------------------------------------
+% Change from here
+% -------------------------------------------
+\title[Title on Document Footer]{Full Title on Titlepage}
+\author[Name on Document Footer]{Ful Author Name on Titlepage}
+\date[\today]{\today}
+\subject{Subject}
+
+\begin{document}
+% -------------------------------------------
+% Set the language will also change the logo
+% Possible options are:
+% 	english
+% 	french
+% 	italian
+% 	ngerman
+% -------------------------------------------
+\selectlanguage{ngerman}
+
+\section{Inhalt}
+
+\subsection {Titel}
+\frame{
+	\titlepage
+}
+
+\subsection {Index}
+\frame{
+	\frametitle{Index}
+	\tableofcontents
+}
+
+\section {Example}
+\frame{
+	\frametitle{Example}
+	\begin{block}{Example}
+        \center Example
+    \end{block}	
+}
+
+\end{document}
