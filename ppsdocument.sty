@@ -30,29 +30,61 @@
 % -----------------------------------
 % Kopf- und fusszeile
 % -----------------------------------
-\RequirePackage{scrpage2}
+\RequirePackage[automark]{scrpage2}
 \KOMAoptions{headinclude=true}
 \KOMAoptions{footinclude=false}
 \KOMAoptions{headlines=3}
 \KOMAoptions{pagesize}
 \recalctypearea
 
+\clearscrheadfoot
 \pagestyle{scrheadings}
 
-\ihead[\headerlogo]{\headerlogo}
-\ohead[%
-	\textbf{\@title}%
+\setlength{\marginparwidth}{2.1em}
+\setheadwidth[0pt]{textwithmarginpar}
 
-	\vspace{1em}%
-	\scriptsize \@author\\\@date%
+\ihead[\smalllogost]{\smalllogost}
+\rohead[
+	\raisebox{0em}{
+		\begin{tabular}[t]{rp{\marginparwidth-0.7em}}
+			\scriptsize & \\
+			\textbf{\@title}   & \pagemark\\
+			\hline
+		\end{tabular}
+	}
+]{
+	\raisebox{0em}{
+		\begin{tabular}[t]{rp{\marginparwidth-0.7em}}
+			\textbf{\@title} & \\
+			\scriptsize \headmark & \pagemark\\
+			\hline
+		\end{tabular}
+	}
+}
+\lehead[
+	\raisebox{0em}{
+		\begin{tabular}[t]{p{\marginparwidth-0.7em}l}
+			& \scriptsize \\
+			\pagemark & \textbf{\@title}   \\
+			\hline
+		\end{tabular}
+	}
+]{
+	\raisebox{0em}{
+		\begin{tabular}[t]{p{\marginparwidth-0.7em}l}
+			& \textbf{\@title} \\
+			\pagemark & \scriptsize \headmark \\
+			\hline
+		\end{tabular}
+	}
+}
+\ifoot[%
+	\scriptsize \ppsnamelong { }| \@author { }| \@date%
 ]{%
-	\textbf{\@title}%
-
-	\vspace{1em}%
-	\scriptsize \@author\\\@date%
+	\scriptsize \ppsnamelong { }| \@author { }| \@date%
 }
 
-\setheadsepline{0.01em}
+%\setheadsepline{0.01em}
 
 \deftripstyle{title}{\headerlogo}{}{}{}{\pagemark}{}
 
