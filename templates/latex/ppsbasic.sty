@@ -20,20 +20,13 @@
 	\RequirePackage{xltxtra}
 	\RequirePackage{xunicode}
 	
-	\setsansfont{Aller Light}
-
-	\newfontfamily{\Aller}{Aller}
-	\newfontfamily{\Allerlight}{Aller Light}
-	\newfontfamily{\Allerbold}{Aller Bold}
-	\newfontfamily{\Allerdisplay}{Aller Display}
-
-	\DeclareTextFontCommand{\textbf}{\Allerbold}
-	\DeclareTextFontCommand{\textsc}{\Allerdisplay}
-
-	% Not sure which fonts should be used here
-	%\textrm{...}
-	%\texttt{...}
-	%\textup{...}
+	\setromanfont[
+		BoldFont=Aller Bold
+	]{Aller Light}
+	\setsansfont[
+		BoldFont=Aller Bold
+	]{Aller Light}
+	%\setmonofont[Scale=MatchLowercase]{Andale Mono}
 \else
 	\RequirePackage[utf8]{inputenc}
 	\RequirePackage[T1]{fontenc}
@@ -56,7 +49,9 @@
 \definecolor{dunkelrot}{cmyk}{0.15,1,0.6,0}
 \definecolor{schwarz}{cmyk}{1,1,1,1}
 \definecolor{violet}{cmyk}{0.65,0.75,0,0.35}
+\definecolor{hellviolet}{RGB}{197,159,242}
 \definecolor{blau}{cmyk}{0.8,0.5,0,0}
+\definecolor{grau}{cmyk}{0,0,0,0.28}
 
 % -----------------------------------
 % Grafiken

@@ -32,7 +32,7 @@
 % Schrift und Absatz
 % -----------------------------------
 \ifxetex
-	\setkomafont{subject}{\Allerbold}
+	\setkomafont{subject}{\bfseries}
 \else
 	% nothing
 \fi

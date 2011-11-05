@@ -5,6 +5,9 @@
 % Email: christian.haeusler@piratenpartei.ch
 %-------------------------------------------------------
 
+% -------------------------------------------
+% Use the following options to customize
+% -------------------------------------------
 % aspectratio
 %	1610	≙	16:10
 %	169	≙	16:9
@@ -13,7 +16,9 @@
 %	43	≙	4.3
 %	32	≙	3:2
 %
-\documentclass[aspectratio=1610, compress]{beamer}
+% [bigger, smaller] use either to change the
+% size or non of them for the default
+\documentclass[aspectratio=1610, compress, bigger]{beamer}
 % -------------------------------------------
 % Use the following three lines instead of the above 
 % to create a handout
@@ -33,9 +38,6 @@
 %		heifht=<dimension> (height of the frame title)
 % -------------------------------------------
 \usetheme{pps}
-
-%\setbeamertemplate{section in head/foot shaded}[default][70]
-%\setbeamertemplate{subsection in head/foot shaded}[default][70]
  
 % -------------------------------------------
 % Uncomment one of the following lines for a section
@@ -46,6 +48,9 @@
 %\usepackage{ppsbe}
 %\usepackage{ppsvd}
 %\usepackage{ppszh}
+
+% Do not show the navigation symbols
+\beamertemplatenavigationsymbolsempty
 
 % -------------------------------------------
 % Change from here
@@ -69,9 +74,22 @@
 % -------------------------------------------
 \selectlanguage{ngerman}
 
+% -------------------------------------------
+% Change background color
+% ------------------------------------------
+% The following commands can be used to
+% change the background color for the slides
+%
+% \backgrounddefault
+% \backgroundorange
+% \backgroundviolet
+% \backgroundgrey
+% -------------------------------------------
+
 \frame[plain]{\maketitle}
 
-%\section<presentation>{This section exists only in the presentation modes}%\section<article>{This section exists only in the article mode}
+%\section<presentation>{This section exists only in the presentation modes}
+%\section<article>{This section exists only in the article mode}
 %\section[Summary]{Summary of Main Results}
 %\hyperlink{somewhere}{\beamerbutton{Go somewhere}}
 
@@ -187,7 +205,18 @@ Blocktext
 \end{alertblock}
 \end{frame}
 
-\begin{frame}   \frametitle{A Theorem on Infinite Sets}   \begin{theorem}<1->     There exists an infinite set.   \end{theorem}   \begin{proof}<2->     This follows from the axiom of infinity.\end{proof}   \begin{example}<3->[Natural Numbers]     The set of natural numbers is infinite.   \end{example} \end{frame}
+\begin{frame}
+   \frametitle{A Theorem on Infinite Sets}
+   \begin{theorem}<1->
+     There exists an infinite set.
+   \end{theorem}
+   \begin{proof}<2->
+     This follows from the axiom of infinity.
+\end{proof}
+   \begin{example}<3->[Natural Numbers]
+     The set of natural numbers is infinite.
+   \end{example}
+ \end{frame}
 
 % Nothing after this line will show up in the toc
 \appendix
