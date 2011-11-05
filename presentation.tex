@@ -1,10 +1,42 @@
-%!TEX encoding = UTF-8 Unicode%-------------------------------------------------------
-% Author: Christian H�usler based on the work from Thomas Bruderer
+% !TEX TS-program = XeLaTeX
+%!TEX encoding = UTF-8 Unicode
+%-------------------------------------------------------
+% Author: Christian Häusler based on the work from Thomas Bruderer
 % Email: christian.haeusler@piratenpartei.ch
 %-------------------------------------------------------
-\documentclass{beamer}
-\usepackage{ppsbeamer}
 
+% aspectratio
+%	1610	≙	16:10
+%	169	≙	16:9
+%	149	≙	14:9
+%	54	≙	5:4
+%	43	≙	4.3
+%	32	≙	3:2
+%
+\documentclass[aspectratio=1610, compress]{beamer}
+% -------------------------------------------
+% Use the following three lines instead of the above 
+% to create a handout
+% -------------------------------------------
+%\documentclass{scrartcl}
+%\usepackage{ppsdocument}
+%\usepackage[noxcolor, hyperref]{beamerarticle}
+
+% -------------------------------------------
+% Load the pps beamer theme
+% Possible options are:
+%	miniframes (use the outer theme miniframes)
+%	structured (use the outer theme sidebar)
+%		right (display the sidebar on the right side)
+%		left (display the sidebar on the left side: default)
+%		width=<dimension> (width of the sidebar)
+%		heifht=<dimension> (height of the frame title)
+% -------------------------------------------
+\usetheme{pps}
+
+%\setbeamertemplate{section in head/foot shaded}[default][70]
+%\setbeamertemplate{subsection in head/foot shaded}[default][70]
+ 
 % -------------------------------------------
 % Uncomment one of the following lines for a section
 % specific document
@@ -18,10 +50,13 @@
 % -------------------------------------------
 % Change from here
 % -------------------------------------------
-\title[Title on Document Footer]{Full Title on Titlepage}
-\author[Name on Document Footer]{Ful Author Name on Titlepage}
+\title[Short Title]{Title in full length}
+%\subtitle<presentation>[Short subtitle]{Subtitle in full length}
+\subtitle{Subtitle in full length}
+\author[Short Name]{Author Name in full length}
 \date[\today]{\today}
-\subject{Subject}
+\subject{The subject is inserted in the meta data of the pdf and helps search engines to find the document}
+\keywords{Keywords are inserted in the meta data of the pdf and helps search engines to find the document}
 
 \begin{document}
 % -------------------------------------------
@@ -34,25 +69,31 @@
 % -------------------------------------------
 \selectlanguage{ngerman}
 
-\begin{frame}
-\titlepage
-\end{frame}
+\frame[plain]{\maketitle}
 
-\begin{frame}
-\frametitle{Inhaltsverzeichnis}\tableofcontents
-\end{frame}
+%\section<presentation>{This section exists only in the presentation modes}%\section<article>{This section exists only in the article mode}
+%\section[Summary]{Summary of Main Results}
+%\hyperlink{somewhere}{\beamerbutton{Go somewhere}}
 
+% Toc only shown in the handout
+\frame<article>[plain]{\tableofcontents\newpage}
+
+\part[Part 1]{Full title of Part 1}
+
+\frame[plain]{\partpage}
+
+% Toc for part 1 only shown in presentation
+\frame<presentation>[plain]{\frametitle{Inhaltsverzeichnis}\tableofcontents}
 
 \section{Abschnitt Nr.1} 
 \begin{frame}\frametitle{Titel} 
-Die einzelnen Frames sollte einen Titel haben 
+	Die einzelnen Frames sollte einen Titel haben 
 \end{frame}
 
 \subsection{Unterabschnitt Nr.1.1  }
 \begin{frame}\frametitle{Testtitel}
 Denn ohne Titel fehlt ihnen was
 \end{frame}
-
 
 \section{Abschnitt Nr.2} 
 \subsection{Listen I}
@@ -73,6 +114,8 @@ Denn ohne Titel fehlt ihnen was
 \item  Die Beamerclass
 \end{itemize} 
 \end{frame}
+
+\backgroundviolet
 
 \subsection{Listen II}
 \begin{frame}\frametitle{Numerierte Liste}
@@ -107,6 +150,7 @@ SS 05 & Sascha Frank & \LaTeX \ Kursreihe \\
 \end{tabular}
 \end{frame}
 
+\backgroundgrey
 
 \begin{frame}
 \frametitle{Tabellen mit Pause}
@@ -119,6 +163,11 @@ A & B & C \\
 \end{tabular} 
 \end{frame}
 
+\backgrounddefault
+
+\part[Part 2]{Full title of Part 2}
+
+\frame[plain]{\partpage}
 
 \section{Abschnitt Nr.4}
 \subsection{Bl\"ocke}
@@ -138,10 +187,15 @@ Blocktext
 \end{alertblock}
 \end{frame}
 
+\begin{frame}   \frametitle{A Theorem on Infinite Sets}   \begin{theorem}<1->     There exists an infinite set.   \end{theorem}   \begin{proof}<2->     This follows from the axiom of infinity.\end{proof}   \begin{example}<3->[Natural Numbers]     The set of natural numbers is infinite.   \end{example} \end{frame}
+
+% Nothing after this line will show up in the toc
+\appendix
+
 \section[Quellen]{Referezen}
 \begin{frame}\frametitle{Quellen \& Literatur}
 
-\begin{thebibliography}{9}
+\begin{thebibliography}{Beamerdokumentation}
 \bibitem[Beamerpaket]{paket} \emph{Beamer Paket} \\ 
 \text{http://latex-beamer.sourceforge.net/}
 \bibitem[Beamerdokumentation]{doku} \emph{User's Guide to the Beamer} 
