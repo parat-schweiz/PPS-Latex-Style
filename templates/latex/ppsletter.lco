@@ -46,7 +46,7 @@
 % -----------------------------------
 
 \setkomavar{fromurl}{\ppsdomain}
-\setkomavar{fromlogo}{\includegraphics[width=6.5cm]{\ppslogost}}
+\setkomavar{fromlogo}{\includegraphics[width=5.5cm]{\ppslogost}}
 
 \setkomavar{partei}{\ppsnamelong}
 
@@ -69,7 +69,7 @@
 %-------------------------------------------------------
 % Kopfzeile
 \firsthead{\headtext
-	\begin{tabular}{p{7.5cm}p{5cm}p{6cm}}
+	\begin{tabular}{p{6.5cm}p{6cm}p{6cm}}
 		\multirow{5}{*}[0.5cm]{\usekomavar{fromlogo}} & \usekomavar{partei} & \\  
 		& \usekomavar{departement} & \\
 		& \usekomavar{fromname} & \\ 
