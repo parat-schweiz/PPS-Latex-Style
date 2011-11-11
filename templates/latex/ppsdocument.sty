@@ -39,7 +39,9 @@
 \setheadwidth[0pt]{textwithmarginpar}
 
 \ihead[\smalllogost]{\smalllogost}
-\rohead[
+
+
+\newcommand{\rheaderplain}{
 	\raisebox{0em}{
 		\begin{tabular}[t]{rp{\marginparwidth-0.7em}}
 			\scriptsize & \\
@@ -47,7 +49,19 @@
 			\hline
 		\end{tabular}
 	}
-]{
+}
+
+\newcommand{\lheaderplain}{
+	\raisebox{0em}{
+		\begin{tabular}[t]{p{\marginparwidth-1em}l}
+			& \scriptsize \\
+			\raisebox{0em}{\pagemark} & \textbf{\@title}   \\
+			\hline
+		\end{tabular}
+	}
+}
+
+\newcommand{\rheadermark}{
 	\raisebox{0em}{
 		\begin{tabular}[t]{rp{\marginparwidth-0.7em}}
 			\textbf{\@title} & \\
@@ -56,30 +70,25 @@
 		\end{tabular}
 	}
 }
-\lehead[
+
+\newcommand{\lheadermark}{
 	\raisebox{0em}{
-		\begin{tabular}[t]{p{\marginparwidth-0.7em}l}
-			& \scriptsize \\
-			\pagemark & \textbf{\@title}   \\
-			\hline
-		\end{tabular}
-	}
-]{
-	\raisebox{0em}{
-		\begin{tabular}[t]{p{\marginparwidth-0.7em}l}
+		\begin{tabular}[t]{p{\marginparwidth-1em}l}
 			& \textbf{\@title} \\
-			\pagemark & \scriptsize \headmark \\
+			\raisebox{0em}{\pagemark} & \scriptsize \headmark \\
 			\hline
 		\end{tabular}
 	}
 }
+
+\rohead[\rheaderplain]{\if@chapter\rheadermark\else\rheaderplain\fi}
+\lehead[\lheaderplain]{\if@chapter\lheadermark\else\lheaderplain\fi}
 \ifoot[%
 	\scriptsize \ppsnamelong { }| \@author { }| \@date%
 ]{%
 	\scriptsize \ppsnamelong { }| \@author { }| \@date%
 }
 
-%\setheadsepline{0.01em}
 
 \deftripstyle{title}{\headerlogo}{}{}{}{}{}
 
