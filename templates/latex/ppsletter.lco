@@ -10,6 +10,9 @@
 \RequirePackage{multirow}
 
 \LoadLetterOption{SN}
+\KOMAoptions{foldmarks=true}
+\KOMAoptions{foldmarks=blmTp}
+
 
 %-------------------------------------------------------
 % New-Var
