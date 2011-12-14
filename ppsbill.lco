@@ -11,7 +11,7 @@
 \RequirePackage[bottom=106mm]{geometry}
 
 \renewenvironment{@beginletterhook}{
-	\esrEinbezahltVon{\usekomavar{toaddress}}
+	\esrEinbezahltVon{\usekomavar{toname}\\\usekomavar{toaddress}}
 }
 
 %-------------------------------------------------------
