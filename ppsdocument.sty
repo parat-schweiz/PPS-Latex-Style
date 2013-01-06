@@ -4,9 +4,18 @@
 % Email: christian.haeusler@piratenpartei.ch
 %-------------------------------------------------------
 
-\ProvidesPackage{ppsdocument}[2011/11/01 v1.0 (Christian 'Corvus' Häusler)]
-
+\ProvidesPackage{ppsdocument}[2013/01/06 v1.0 (Christian 'Corvus' Häusler, Stefan 'Exception' Thöni)]
+\RequirePackage{kvoptions}
+\RequirePackage{xifthen}
 \RequirePackage{ppsbasic}
+
+
+\SetupKeyvalOptions{
+  family=pps,
+  prefix=pps@
+}
+\DeclareStringOption[default]{organ}
+\ProcessKeyvalOptions*
 
 % -----------------------------------
 % Schrift und Absatz
@@ -16,6 +25,33 @@
 \setkomafont{sectioning}{\bfseries}
 
 \KOMAoptions{fontsize=11pt}
+
+% -----------------------------------
+% Farben für den Gebrauch im Dokument
+% -----------------------------------
+\definecolor{red}{rgb}{1,0,0}
+\definecolor{black}{rgb}{0,0,0}
+
+% -----------------------------------
+% Title für Organ oder Default
+% -----------------------------------
+
+
+\ifthenelse{\equal{\pps@organ}{gpk}}
+{
+	\newcommand{\headername}{\includegraphics[width=5cm]{logo/spez/gpklogo.png}}
+	\newcommand{\titlepagespace}{1em}
+}
+{
+	\newcommand{\headername}{\ppsname}
+	\newcommand{\titlepagespace}{3em}
+}
+
+% -----------------------------------
+% Keine default Klassifizierungstexte
+% -----------------------------------
+\newcommand{\classified}{}
+\newcommand{\classcolor}{black}
 
 % -----------------------------------
 % Grafiken
@@ -89,6 +125,8 @@
 	\scriptsize \ppsnamelong { }| \@author { }| \@date%
 }
 
+\chead{\raisebox{1.8cm}[0cm]{\Large{\textcolor{\classcolor}{\classified \hspace{1cm}}}}}
+\cfoot{\raisebox{-2.2cm}[0cm]{\Large{\textcolor{\classcolor}{\classified \hspace{1cm}}}}}
 
 \deftripstyle{title}{\headerlogo}{}{}{}{}{}
 
@@ -113,9 +151,10 @@
 	\thispagestyle{title}
 	\if@titlepage\vspace*{\tpagemargin}\else\fi
 	\begin{flushright}
-	{\Huge\ppsname\par\large\@title}
+	{\Huge\headername\par\large\@title}
+	\\ \Large{\textcolor{\classcolor}{\classified}}
 	\par
-	\vspace{3em}{\raggedleft\scriptsize\@author\hspace{1em}\@date}
+	\vspace{\titlepagespace}{\raggedleft\scriptsize\@author\hspace{1em}\@date}
 	\end{flushright}
 	\vspace{2em}
 }
