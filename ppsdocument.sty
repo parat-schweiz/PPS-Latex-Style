@@ -5,17 +5,8 @@
 %-------------------------------------------------------
 
 \ProvidesPackage{ppsdocument}[2013/01/06 v1.0 (Christian 'Corvus' Häusler, Stefan 'Exception' Thöni)]
-\RequirePackage{kvoptions}
 \RequirePackage{xifthen}
 \RequirePackage{ppsbasic}
-
-
-\SetupKeyvalOptions{
-  family=pps,
-  prefix=pps@
-}
-\DeclareStringOption[default]{organ}
-\ProcessKeyvalOptions*
 
 % -----------------------------------
 % Schrift und Absatz
@@ -36,16 +27,12 @@
 % Title für Organ oder Default
 % -----------------------------------
 
-
-\ifthenelse{\equal{\pps@organ}{gpk}}
-{
-	\newcommand{\headername}{\includegraphics[width=5cm]{logo/spez/gpklogo.png}}
-	\newcommand{\titlepagespace}{1em}
-}
-{
-	\newcommand{\headername}{\ppsname}
-	\newcommand{\titlepagespace}{3em}
-}
+% -----------------------------------
+% default and update values for title
+% -----------------------------------
+\newcommand{\headername}{\ppsname}
+\newcommand{\titlepagespace}{3em}
+\newcommand{\gpklogo}{\includegraphics[width=5cm]{logo/spez/gpklogo.png}}
 
 % -----------------------------------
 % Keine default Klassifizierungstexte
@@ -152,7 +139,9 @@
 	\if@titlepage\vspace*{\tpagemargin}\else\fi
 	\begin{flushright}
 	{\Huge\headername\par\large\@title}
-	\\ \Large{\textcolor{\classcolor}{\classified}}
+	\ifthenelse{\equal{\classified}{}}{}{
+		\\ \Large{\textcolor{\classcolor}{\classified}}
+	}
 	\par
 	\vspace{\titlepagespace}{\raggedleft\scriptsize\@author\hspace{1em}\@date}
 	\end{flushright}
