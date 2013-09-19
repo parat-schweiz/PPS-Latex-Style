@@ -1,8 +1,7 @@
-\ProvidesPackage{ppslaw}[2011/10/14 v 0.1 PPS Law]
-
-\KOMAoptions{DIV=15}
+﻿\ProvidesPackage{ppslaw}[2011/10/14 v 0.1 PPS Law]
 \RequirePackage{tabularx}
-\setcounter{secnumdepth}{0}
+\KOMAoptions{DIV=15}
+\setcounter{secnumdepth}{-1}
 
 \newcommand{\art}[2]
 {
@@ -38,5 +37,11 @@
 \newcommand{\refart}[1]{Art. #1}
 \newcommand{\refabs}[2]{Art. #1 Abs. #2}
 \newcommand{\reflit}[3]{Art. #1 Abs. #2 Lit. #3}
-\newcommand{\removed}{\tiny \textit{aufgehoben}}
+\newcommand{\removed}
+{
+	\iflanguage{ngerman}{\tiny \textit{aufgehoben}}
+	
+	\iflanguage{french}{\tiny \textit{abrogée}}
+}
 \newcommand{\uber}[1]{$^{\textnormal{\tiny #1}}$}
+\newcommand{\uberlarge}[1]{$^{\textnormal{\scriptsize #1}}$}
