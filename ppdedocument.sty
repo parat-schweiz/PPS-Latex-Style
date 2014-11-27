@@ -32,18 +32,6 @@
 % -----------------------------------
 \newcommand{\headername}{\ppsname}
 \newcommand{\titlepagespace}{3em}
-\newcommand{\gpklogo}{\includegraphics[width=5cm]{logo/spez/gpklogo.png}}
-
-% -----------------------------------
-% Keine default Klassifizierungstexte
-% -----------------------------------
-\newcommand{\classified}{}
-\newcommand{\classcolor}{black}
-
-% -----------------------------------
-% Grafiken
-% -----------------------------------
-\AddToShipoutPicture{\wellen}
 
 % -----------------------------------
 % Kopf- und fusszeile
@@ -112,9 +100,6 @@
 	\scriptsize \ppsnamelong { }| \@author { }| \@date%
 }
 
-\chead{\raisebox{1.8cm}[0cm]{\Large{\textcolor{\classcolor}{\classified \hspace{1cm}}}}}
-\cfoot{\raisebox{-2.2cm}[0cm]{\Large{\textcolor{\classcolor}{\classified \hspace{1cm}}}}}
-
 \deftripstyle{title}{\headerlogo}{}{}{}{}{}
 
 
@@ -137,17 +122,13 @@
 \renewcommand{\maketitle}{
 	\thispagestyle{empty}
 	\if@titlepage\vspace*{\tpagemargin}\else\fi
-	\includegraphics[height=3cm]{\ppslogost}
+	\includegraphics[height=2cm]{\ppslogost}
 	\begin{flushright}
-	{\Huge\headername\par\large\@title}
-	\ifthenelse{\equal{\classified}{}}{}{
-		\\ \Large{\textcolor{\classcolor}{\classified}}
-	}
+	{\Large\headername\par\large\@title}
 	\par
 	\vspace{\titlepagespace}{\raggedleft\scriptsize\@author\hspace{1em}\@date}
 	\end{flushright}
 	\vspace{2em}
-	\AddToShipoutPicture{\wellen}
 }
 
 \newcommand{\backgrounddefault}{}
@@ -164,6 +145,6 @@
 \renewcaptionname{ngerman}{\ppslogowwnego}{logo/ppde/ppde-std.png}
 \renewcaptionname{ngerman}{\ppslogost}{logo/ppde/ppde-std.png}
 \renewcaptionname{ngerman}{\ppslogostnego}{logo/ppde/ppde-std.png}
-\renewcaptionname{ngerman}{\ppsname}{\textbf{Piraten}partei}
+\renewcaptionname{ngerman}{\ppsname}{Piratenpartei Deutschland}
 \renewcaptionname{ngerman}{\ppsnamelong}{Piratenpartei Deutschland}
 \renewcaptionname{ngerman}{\ppsdomain}{piratenpartei.de}
