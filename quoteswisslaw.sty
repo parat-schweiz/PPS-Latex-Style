@@ -160,6 +160,9 @@
 \providecaptionname{ngerman}{\lawvdsg}{VDSG}
 \providecaptionname{ngerman}{\lawvdsgfull}{der Verordnung zum Bundesgesetz über den Datenschutz (VDSG)}
 \providecaptionname{ngerman}{\lawvdsgsingle}{Verordnung zum Bundesgesetz über den Datenschutz (VDSG)}
+\providecaptionname{ngerman}{\lawbpr}{BPR}
+\providecaptionname{ngerman}{\lawbprfull}{des Bundesgesetzes über den Datenschutz Bundesgesetz über die politischen Rechte (BPR}
+\providecaptionname{ngerman}{\lawbprsingle}{Bundesgesetz über die politischen Rechte (BPR)}
 
 \providecaptionname{french}{\lawbv}{Cst}
 \providecaptionname{french}{\lawbvfull}{de la constitution fédérale de la Confédération suisse (Cst)}
@@ -203,6 +206,9 @@
 \providecaptionname{french}{\lawvdsg}{OLPD}
 \providecaptionname{french}{\lawvdsgfull}{de l'ordonnance relative à la loi fédérale sur la protection des données (OLPD)}
 \providecaptionname{french}{\lawvdsgsingle}{ordonnance relative à la loi fédérale sur la protection des données (OLPD)}
+\providecaptionname{french}{\lawbpr}{OLPD}
+\providecaptionname{french}{\lawbprfull}{de la loi fédérale sur les droits politiques (LDP)}
+\providecaptionname{french}{\lawbprsingle}{loi fédérale sur les droits politiques (LDP)}
 
 \DeclareDocumentCommand{\bv}{ O{} O{} O{} O{} }{\lawabs{19995395}{\lawbv}[#1][#2][#3][#4]}
 \DeclareDocumentCommand{\zgb}{ O{} O{} O{} O{} }{\lawabs{19070042}{\lawzgb}[#1][#2][#3][#4]}
@@ -214,10 +220,11 @@
 \DeclareDocumentCommand{\vwvg}{ O{} O{} O{} O{} }{\lawabs{19680294}{\lawvwvg}[#1][#2][#3][#4]}
 \DeclareDocumentCommand{\vgg}{ O{} O{} O{} O{} }{\lawabs{20010206}{\lawvgg}[#1][#2][#3][#4]}
 \DeclareDocumentCommand{\bgo}{ O{} O{} O{} O{} }{\lawabs{20022540}{\lawbgo}[#1][#2][#3][#4]}
-\DeclareDocumentCommand{\bupf}{ O{} O{} O{} O{} }{\lawabs{20022540}{\lawbupf}[#1][#2][#3][#4]}
-\DeclareDocumentCommand{\vupf}{ O{} O{} O{} O{} }{\lawabs{20022540}{\lawvupf}[#1][#2][#3][#4]}
-\DeclareDocumentCommand{\dsg}{ O{} O{} O{} O{} }{\lawabs{20022540}{\lawdsg}[#1][#2][#3][#4]}
-\DeclareDocumentCommand{\vdsg}{ O{} O{} O{} O{} }{\lawabs{20022540}{\lawvdsg}[#1][#2][#3][#4]}
+\DeclareDocumentCommand{\bupf}{ O{} O{} O{} O{} }{\lawabs{20002162}{\lawbupf}[#1][#2][#3][#4]}
+\DeclareDocumentCommand{\vupf}{ O{} O{} O{} O{} }{\lawabs{20002506}{\lawvupf}[#1][#2][#3][#4]}
+\DeclareDocumentCommand{\dsg}{ O{} O{} O{} O{} }{\lawabs{19920153}{\lawdsg}[#1][#2][#3][#4]}
+\DeclareDocumentCommand{\vdsg}{ O{} O{} O{} O{} }{\lawabs{19930159}{\lawvdsg}[#1][#2][#3][#4]}
+\DeclareDocumentCommand{\bpr}{ O{} O{} O{} O{} }{\lawabs{19760323}{\lawbpr}[#1][#2][#3][#4]}
 
 \DeclareDocumentCommand{\emrkf}{ O{} O{} O{} O{} }{\lawziff{19500267}{\lawemrkfull}[#1][#2][#3][#4]}
 \DeclareDocumentCommand{\paktf}{ O{} O{} O{} O{} }{\lawziff{19660262}{\lawpaktfull}[#1][#2][#3][#4]}
@@ -231,6 +238,11 @@
 \DeclareDocumentCommand{\vwvgf}{ O{} O{} O{} O{} }{\lawabs{19680294}{\lawvwvgfull}[#1][#2][#3][#4]}
 \DeclareDocumentCommand{\vggf}{ O{} O{} O{} O{} }{\lawabs{20010206}{\lawvggfull}[#1][#2][#3][#4]}
 \DeclareDocumentCommand{\bgof}{ O{} O{} O{} O{} }{\lawabs{20022540}{\lawbgofull}[#1][#2][#3][#4]}
+\DeclareDocumentCommand{\bupff}{ O{} O{} O{} O{} }{\lawabs{20002162}{\lawbupffull}[#1][#2][#3][#4]}
+\DeclareDocumentCommand{\vupff}{ O{} O{} O{} O{} }{\lawabs{20002506}{\lawvupffull}[#1][#2][#3][#4]}
+\DeclareDocumentCommand{\dsgf}{ O{} O{} O{} O{} }{\lawabs{19920153}{\lawdsgfull}[#1][#2][#3][#4]}
+\DeclareDocumentCommand{\vdsgf}{ O{} O{} O{} O{} }{\lawabs{19930159}{\lawvdsgfull}[#1][#2][#3][#4]}
+\DeclareDocumentCommand{\bprf}{ O{} O{} O{} O{} }{\lawabs{19760323}{\lawbprfull}[#1][#2][#3][#4]}
 
 % ===================================
 % Bundesgerichtsentscheide
@@ -238,21 +250,21 @@
 
 \providecaptionname{ngerman}{\bgeword}{BGE}
 \providecaptionname{ngerman}{\bgerjudgement}{Urteil des Bundesgerichts }
-\providecaptionname{ngerman}{\bgerfrom}{ vom }
-\providecaptionname{ngerman}{\bgerdaysep}{. }
+\providecaptionname{ngerman}{\bgerfrom}{vom}
+\providecaptionname{ngerman}{\bgerdaysep}{.}
 \providecaptionname{ngerman}{\bgelanguage}{de}
 
 \providecaptionname{french}{\bgeword}{ATF}
 \providecaptionname{ngerman}{\bgerjudgement}{arrêt du Tribunal Fédéral }
-\providecaptionname{ngerman}{\bgerfrom}{ du }
-\providecaptionname{ngerman}{\bgerdaysep}{ }
+\providecaptionname{ngerman}{\bgerfrom}{du}
+\providecaptionname{ngerman}{\bgerdaysep}{}
 \providecaptionname{french}{\bgelanguage}{fr}
 
 \DeclareDocumentCommand{\bge}{ m m m }{%
 \href{http://relevancy.bger.ch/php/clir/http/index.php?type=show_document&highlight_docid=atf\%3A\%2F\%2F#1-#2-#3\%3A\bgelanguage}{\bgeword~#1~#2~#3}}
 
 \DeclareDocumentCommand{\bger}{ m m m m m m }{%
-\href{http://relevancy.bger.ch/php/aza/http/index.php?type=show_document&highlight_docid=aza\%3A\%2F\%2F#4-#5-#6-#1\_#2-#3}{\bgerjudgement  #1\_#2/#3 \bgerfrom #4\bgerdaysep \getmonth{#5} #6}}
+\href{http://relevancy.bger.ch/php/aza/http/index.php?type=show_document&highlight_docid=aza\%3A\%2F\%2F#4-#5-#6-#1\_#2-#3}{\bgerjudgement  #1\_#2/#3 \bgerfrom{} #4\bgerdaysep{}~\getmonth{#5} #6}}
 
 
 
