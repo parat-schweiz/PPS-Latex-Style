@@ -259,13 +259,13 @@
 \providecaptionname{ngerman}{\bgelanguage}{de}
 
 \providecaptionname{french}{\bgeword}{ATF}
-\providecaptionname{ngerman}{\bgerjudgement}{arrêt du Tribunal Fédéral }
-\providecaptionname{ngerman}{\bgerfrom}{du}
-\providecaptionname{ngerman}{\bgerdaysep}{}
+\providecaptionname{french}{\bgerjudgement}{arrêt du Tribunal Fédéral }
+\providecaptionname{french}{\bgerfrom}{du}
+\providecaptionname{french}{\bgerdaysep}{}
 \providecaptionname{french}{\bgelanguage}{fr}
 
 \DeclareDocumentCommand{\bge}{ m m m }{%
-\href{http://relevancy.bger.ch/php/clir/http/index.php?type=show_document&highlight_docid=atf\%3A\%2F\%2F#1-#2-#3\%3A\bgelanguage}{\bgeword~#1~#2~#3}}
+\href{http://relevancy.bger.ch/php/clir/http/index.php?type=show_document&highlight_docid=atf\%3A\%2F\%2F#1-\MakeUppercase{#2}-#3\%3A\bgelanguage}{\bgeword~#1~#2~#3}}
 
 \DeclareDocumentCommand{\bger}{ m m m m m m }{%
 \href{http://relevancy.bger.ch/php/aza/http/index.php?type=show_document&highlight_docid=aza\%3A\%2F\%2F\twodigits{#4}-\twodigits{#5}-#6-#1\_#2-#3}{\bgerjudgement  #1\_#2/#3 \bgerfrom{} #4\bgerdaysep{}~\getmonth{#5} #6}}
