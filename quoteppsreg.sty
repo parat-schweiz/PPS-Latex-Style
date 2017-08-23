@@ -10,18 +10,14 @@
 % ======================================
 
 \DeclareDocumentCommand{\ppsreg}{ m O{} O{} O{} O{} }{%
-\href{\regurl{#1}}{\ifthenelse{\equal{#2}{}}{}{\wordart~#2~}\ifthenelse{\equal{#3}{}}{}{\wordabs~#3~}\ifthenelse{\equal{#4}{}}{}{\wordlit~#4~}\ifthenelse{\equal{#5}{}}{}{\wordziff~#5~}\regname{#1}{#2}}}
+\href{\regurl{#1}}{\ifthenelse{\equal{#2}{}}{}{\wordart~#2~}\ifthenelse{\equal{#3}{}}{}{\wordabs~#3~}\ifthenelse{\equal{#4}{}}{}{\wordlit~#4~}\ifthenelse{\equal{#5}{}}{}{\wordziff~#5~}\regname{#1}{#2}}}%
 
 \newcommand{\regurl}[1]{\csname reg#1url\endcsname}
 \newcommand{\regshort}[1]{\csname reg#1short\endcsname}
 \newcommand{\regfull}[1]{\csname reg#1full\endcsname}
 \newcommand{\regsingle}[1]{\csname reg#1single\endcsname}
 \newcommand{\regname}[2]{%
-\ifthenelse{\equal{#2}{}}{%
-\stepcounter{#1}\ifthenelse{\equal{\value{#1}}{1}}{\regsingle{#1}}{\regshort{#1}}
-}{%
-\stepcounter{#1}\ifthenelse{\equal{\value{#1}}{1}}{\regfull{#1}}{\regshort{#1}}
-}}
+\ifthenelse{\equal{#2}{}}{\stepcounter{#1}\ifthenelse{\equal{\value{#1}}{1}}{\regsingle{#1}}{\regshort{#1}}}{\stepcounter{#1}\ifthenelse{\equal{\value{#1}}{1}}{\regfull{#1}}{\regshort{#1}}}}
 
 % ======================================
 % Piratenpartei Schweiz
