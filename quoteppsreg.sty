@@ -1,0 +1,57 @@
+\ProvidesPackage{quoteppsreg}[2017/08/23 v1.0 (Stefan Thöni)]
+\RequirePackage{hyperref}
+\RequirePackage{ifthen}
+\RequirePackage{xparse}
+\RequirePackage{scrbase}
+\RequirePackage{quoteswisslaw}
+
+% ======================================
+% Zugriff Urls
+% ======================================
+
+\DeclareDocumentCommand{\ppsreg}{ m O{} O{} O{} O{} }{%
+\href{\regurl{#1}}{\ifthenelse{\equal{#2}{}}{}{\wordart~#2~}\ifthenelse{\equal{#3}{}}{}{\wordabs~#3~}\ifthenelse{\equal{#4}{}}{}{\wordlit~#4~}\ifthenelse{\equal{#5}{}}{}{\wordziff~#5~}\regname{#1}{#2}}}
+
+\newcommand{\regurl}[1]{\csname reg#1url\endcsname}
+\newcommand{\regshort}[1]{\csname reg#1short\endcsname}
+\newcommand{\regfull}[1]{\csname reg#1full\endcsname}
+\newcommand{\regsingle}[1]{\csname reg#1single\endcsname}
+\newcommand{\regname}[2]{%
+\ifthenelse{\equal{#2}{}}{%
+\stepcounter{#1}\ifthenelse{\equal{\value{#1}}{1}}{\regsingle{#1}}{\regshort{#1}}
+}{%
+\stepcounter{#1}\ifthenelse{\equal{\value{#1}}{1}}{\regfull{#1}}{\regshort{#1}}
+}}
+
+% ======================================
+% Piratenpartei Schweiz
+% ======================================
+
+\providecaptionname{ngerman}{\regstppsshort}{StPPS}
+\providecaptionname{ngerman}{\regstppsfull}{der Statuten der Piratenpartei Schweiz (StPPS)}
+\providecaptionname{ngerman}{\regstppssingle}{Statuten der Piratenpartei Schweiz (StPPS)}
+\providecaptionname{ngerman}{\regstppsurl}{https://projects.piratenpartei.ch/dmsf/files/3729/view}
+
+\newcounter{stpps}
+\DeclareDocumentCommand{\stpps}{ O{} O{} O{} O{} }{\ppsreg{stpps}[#1][#2][#3][#4]}
+
+% ======================================
+% Piratengericht
+% ======================================
+
+\providecaptionname{ngerman}{\regvfrshort}{VFR}
+\providecaptionname{ngerman}{\regvfrfull}{des Verfahrensregelments (VFR)}
+\providecaptionname{ngerman}{\regvfrsingle}{Verfahrensreglement (VFR)}
+\providecaptionname{ngerman}{\regvfrurl}{https://piratengericht.ch/site/assets/files/1063/vfr-20141211.pdf}
+
+\newcounter{vfr}
+\DeclareDocumentCommand{\vfr}{ O{} O{} O{} O{} }{\ppsreg{vfr}[#1][#2][#3][#4]}
+
+\providecaptionname{ngerman}{\regpgvshort}{PGV}
+\providecaptionname{ngerman}{\regpgvfull}{der Piratengerichtsverfassung (PGV)}
+\providecaptionname{ngerman}{\regpgvsingle}{Piratengerichtsverfassung (PGV)}
+\providecaptionname{ngerman}{\regpgvurl}{https://piratengericht.ch/site/assets/files/1063/pgv-20140319.pdf}
+
+\newcounter{pgv}
+\DeclareDocumentCommand{\pgv}{ O{} O{} O{} O{} }{\ppsreg{pgv}[#1][#2][#3][#4]}
+
