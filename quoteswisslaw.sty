@@ -86,167 +86,203 @@
 
 \providecaptionname{ngerman}{\articlelanguage}{de}
 \providecaptionname{french}{\articlelanguage}{fr}
+\providecaptionname{ngerman}{\lang}{de}
+\providecaptionname{french}{\lang}{fr}
+
+\newcommand{\lawshort}[1]{\csname law#1short\endcsname}
+\newcommand{\lawfull}[1]{\csname law#1full\endcsname}
+\newcommand{\lawsingle}[1]{\csname law#1single\endcsname}
+\newcommand{\lawname}[2]{%
+\ifthenelse{\equal{#2}{}}{\stepcounter{#1\lang}\ifthenelse{\equal{\value{#1\lang}}{1}}{\lawsingle{#1}}{\lawshort{#1}}}{\stepcounter{#1\lang}\ifthenelse{\equal{\value{#1\lang}}{1}}{\lawfull{#1}}{\lawshort{#1}}}}
 
 \DeclareDocumentCommand{\lawabs}{ m m O{} O{} O{} O{} }{%
-\href{http://www.admin.ch/opc/\articlelanguage/classified-compilation/#1/index.html\#a#3}{\ifthenelse{\equal{#3}{}}{}{\wordart~#3~}\ifthenelse{\equal{#4}{}}{}{\wordabs~#4~}\ifthenelse{\equal{#5}{}}{}{\wordlit~#5~}\ifthenelse{\equal{#6}{}}{}{\wordziff~#6~}#2}}
+\href{http://www.admin.ch/opc/\articlelanguage/classified-compilation/#1/index.html\#a#3}{\ifthenelse{\equal{#3}{}}{}{\wordart~#3~}\ifthenelse{\equal{#4}{}}{}{\wordabs~#4~}\ifthenelse{\equal{#5}{}}{}{\wordlit~#5~}\ifthenelse{\equal{#6}{}}{}{\wordziff~#6~}\lawname{#2}}}
 
 \DeclareDocumentCommand{\lawziff}{ m m O{} O{} O{} O{} O{} }{%
-\href{http://www.admin.ch/opc/\articlelanguage/classified-compilation/#1/index.html\#a#3}{\ifthenelse{\equal{#3}{}}{}{\wordart~#3~}\ifthenelse{\equal{#4}{}}{}{\wordziff~#4~}\ifthenelse{\equal{#5}{}}{}{\wordabs~#5~}\ifthenelse{\equal{#6}{}}{}{\wordlit~#6~}\ifthenelse{\equal{#7}{}}{}{\wordziff~#7~}#2}}
-
+\href{http://www.admin.ch/opc/\articlelanguage/classified-compilation/#1/index.html\#a#3}{\ifthenelse{\equal{#3}{}}{}{\wordart~#3~}\ifthenelse{\equal{#4}{}}{}{\wordziff~#4~}\ifthenelse{\equal{#5}{}}{}{\wordabs~#5~}\ifthenelse{\equal{#6}{}}{}{\wordlit~#6~}\ifthenelse{\equal{#7}{}}{}{\wordziff~#7~}\lawname{#2}}}
 
 
 % ======================================
 % Völkerrecht
 % ======================================
 
-\providecaptionname{ngerman}{\lawemrk}{EMRK}
+\DeclareDocumentCommand{\emrk}{ O{} O{} O{} O{} }{\lawziff{19500267}{emrk}[#1][#2][#3][#4]}
+\providecaptionname{ngerman}{\lawemrkshort}{EMRK}
 \providecaptionname{ngerman}{\lawemrkfull}{der Konvention zum Schutze der Menschenrechte und Grundfreiheiten (EMRK)}
 \providecaptionname{ngerman}{\lawemrksingle}{Konvention zum Schutze der Menschenrechte und Grundfreiheiten (EMRK)}
-\providecaptionname{ngerman}{\lawpakt}{UNO-Pakt II}
-\providecaptionname{ngerman}{\lawpaktfull}{des Internationalen Paktes über bürgerliche und politische Rechte (UNO-Pakt II)}
-\providecaptionname{ngerman}{\lawpaktsingle}{Internationale Pakt über bürgerliche und politische Rechte (UNO-Pakt II)}
-
-\providecaptionname{french}{\lawemrk}{CEDH}
+\providecaptionname{french}{\lawemrkshort}{CEDH}
 \providecaptionname{french}{\lawemrkfull}{de la convention de sauvegarde des droits de l'homme et des libertés fondamentales (CEDH)}
 \providecaptionname{french}{\lawemrksingle}{convention de sauvegarde des droits de l'homme et des libertés fondamentales (CEDH)}
-\providecaptionname{french}{\lawpakt}{Pacte ONU II}
+\newcounter{emrkde}
+\newcounter{emrkfr}
+
+\DeclareDocumentCommand{\pakt}{ O{} O{} O{} O{} }{\lawziff{19660262}{pakt}[#1][#2][#3][#4]}
+\providecaptionname{ngerman}{\lawpaktshort}{UNO-Pakt II}
+\providecaptionname{ngerman}{\lawpaktfull}{des Internationalen Paktes über bürgerliche und politische Rechte (UNO-Pakt II)}
+\providecaptionname{ngerman}{\lawpaktsingle}{Internationale Pakt über bürgerliche und politische Rechte (UNO-Pakt II)}
+\providecaptionname{french}{\lawpaktshort}{Pacte ONU II}
 \providecaptionname{french}{\lawpaktfull}{du pacte international relatif aux droits civils et politiques (Pacte ONU II)}
 \providecaptionname{french}{\lawpaktsingle}{pacte international relatif aux droits civils et politiques (Pacte ONU II)}
-
-\DeclareDocumentCommand{\emrk}{ O{} O{} O{} O{} }{\lawziff{19500267}{\lawemrk}[#1][#2][#3][#4]}
-\DeclareDocumentCommand{\pakt}{ O{} O{} O{} O{} }{\lawziff{19660262}{\lawpakt}[#1][#2][#3][#4]}
+\newcounter{paktde}
+\newcounter{paktfr}
 
 
 
 % ======================================
-% Verfassung und Bundesgesetze
+% Bundesrecht
 % ======================================
 
-\providecaptionname{ngerman}{\lawbv}{BV}
+\DeclareDocumentCommand{\bv}{ O{} O{} O{} O{} }{\lawabs{19995395}{bv}[#1][#2][#3][#4]}
+\providecaptionname{ngerman}{\lawbvshort}{BV}
 \providecaptionname{ngerman}{\lawbvfull}{der Bundesverfassung der Schweizerischen Eidgenossenschaft (BV)}
 \providecaptionname{ngerman}{\lawbvsingle}{Bundesverfassung der Schweizerischen Eidgenossenschaft (BV)}
-\providecaptionname{ngerman}{\lawzgb}{ZGB}
-\providecaptionname{ngerman}{\lawzgbfull}{des Schweizerischen Zivilgesetzbuches (ZGB)}
-\providecaptionname{ngerman}{\lawzgbsingle}{Schweizerisches Zivilgesetzbuches (ZGB)}
-\providecaptionname{ngerman}{\lawor}{OR}
-\providecaptionname{ngerman}{\laworfull}{des Schweizerischen Obligationenrechtes (OR)}
-\providecaptionname{ngerman}{\laworsingle}{Schweizerisches Obligationenrechtes (OR)}
-\providecaptionname{ngerman}{\lawzpo}{ZPO}
-\providecaptionname{ngerman}{\lawzpofull}{der Schweizerischen Zivilprozessordnung (ZPO)}
-\providecaptionname{ngerman}{\lawzposingle}{Schweizerische Zivilprozessordnung (ZPO)}
-\providecaptionname{ngerman}{\lawstgb}{StGB}
-\providecaptionname{ngerman}{\lawstgbfull}{des Schweizerischen Strafgesetzbuches (StGB)}
-\providecaptionname{ngerman}{\lawstgbsingle}{Schweizerisches Strafgesetzbuches (StGB)}
-\providecaptionname{ngerman}{\lawstpo}{StPO}
-\providecaptionname{ngerman}{\lawstpofull}{der Schweizerischen Strafprozessordnung (StPO)}
-\providecaptionname{ngerman}{\lawstposingle}{Schweizerische Strafprozessordnung (StPO)}
-\providecaptionname{ngerman}{\lawbgg}{BGG}
-\providecaptionname{ngerman}{\lawbggfull}{des Bundesgesetzes über das Bundesgericht (BGG)}
-\providecaptionname{ngerman}{\lawbggsingle}{Bundesgesetz über das Bundesgericht (BGG)}
-\providecaptionname{ngerman}{\lawvwvg}{VwVG}
-\providecaptionname{ngerman}{\lawvwvgfull}{des Bundesgesetzes über das Verwaltungsverfahren (VwVG)}
-\providecaptionname{ngerman}{\lawvwvgsingle}{Bundesgesetz über das Verwaltungsverfahren (VwVG)}
-\providecaptionname{ngerman}{\lawvgg}{VGG}
-\providecaptionname{ngerman}{\lawvggfull}{des Bundesgesetzes über das Bundesverwaltungsgericht (VGG)}
-\providecaptionname{ngerman}{\lawvggsingle}{Bundesgesetz über das Bundesverwaltungsgericht (VGG)}
-\providecaptionname{ngerman}{\lawbgo}{BGÖ}
-\providecaptionname{ngerman}{\lawbgofull}{des Bundesgesetzes über das Öffentlichkeitsprinzip der Verwaltung (BGÖ)}
-\providecaptionname{ngerman}{\lawbgosingle}{Bundesgesetz über das Öffentlichkeitsprinzip der Verwaltung (BGÖ)}
-\providecaptionname{ngerman}{\lawbupf}{BÜPF}
-\providecaptionname{ngerman}{\lawbupffull}{des Bundesgesetz betreffend die Überwachung des Post- und Fernmeldeverkehrs (BÜPF)}
-\providecaptionname{ngerman}{\lawbupfsingle}{Bundesgesetz betreffend die Überwachung des Post- und Fernmeldeverkehrs (BÜPF)}
-\providecaptionname{ngerman}{\lawvupf}{VÜPF}
-\providecaptionname{ngerman}{\lawvupffull}{der Verordnung über die Überwachung des Post- und Fernmeldeverkehrs (VÜPF)}
-\providecaptionname{ngerman}{\lawvupfsingle}{Verordnung über die Überwachung des Post- und Fernmeldeverkehrs (VÜPF)}
-\providecaptionname{ngerman}{\lawdsg}{DSG}
-\providecaptionname{ngerman}{\lawdsgfull}{des Bundesgesetzes über den Datenschutz (DSG)}
-\providecaptionname{ngerman}{\lawdsgsingle}{Bundesgesetz über den Datenschutz (DSG)}
-\providecaptionname{ngerman}{\lawvdsg}{VDSG}
-\providecaptionname{ngerman}{\lawvdsgfull}{der Verordnung zum Bundesgesetz über den Datenschutz (VDSG)}
-\providecaptionname{ngerman}{\lawvdsgsingle}{Verordnung zum Bundesgesetz über den Datenschutz (VDSG)}
-\providecaptionname{ngerman}{\lawbpr}{BPR}
-\providecaptionname{ngerman}{\lawbprfull}{des Bundesgesetzes über die politischen Rechte (BPR)}
-\providecaptionname{ngerman}{\lawbprsingle}{Bundesgesetz über die politischen Rechte (BPR)}
-
-\providecaptionname{french}{\lawbv}{Cst}
+\providecaptionname{french}{\lawbvshort}{Cst}
 \providecaptionname{french}{\lawbvfull}{de la constitution fédérale de la Confédération suisse (Cst)}
 \providecaptionname{french}{\lawbvsingle}{constitution fédérale de la Confédération suisse (Cst)}
-\providecaptionname{french}{\lawzgb}{CC}
+\newcounter{bvde}
+\newcounter{bvfr}
+
+\DeclareDocumentCommand{\zgb}{ O{} O{} O{} O{} }{\lawabs{19070042}{zgb}[#1][#2][#3][#4]}
+\providecaptionname{ngerman}{\lawzgbshort}{ZGB}
+\providecaptionname{ngerman}{\lawzgbfull}{des Schweizerischen Zivilgesetzbuches (ZGB)}
+\providecaptionname{ngerman}{\lawzgbsingle}{Schweizerisches Zivilgesetzbuches (ZGB)}
+\providecaptionname{french}{\lawzgbshort}{CC}
 \providecaptionname{french}{\lawzgbfull}{du code civil suisse (CC)}
 \providecaptionname{french}{\lawzgbsingle}{code civil suisse (CC)}
-\providecaptionname{french}{\lawor}{DO}
+\newcounter{zgbde}
+\newcounter{zgbfr}
+
+\DeclareDocumentCommand{\ore}{ O{} O{} O{} O{} }{\lawabs{19110009}{or}[#1][#2][#3][#4]}
+\providecaptionname{ngerman}{\laworshort}{OR}
+\providecaptionname{ngerman}{\laworfull}{des Schweizerischen Obligationenrechtes (OR)}
+\providecaptionname{ngerman}{\laworsingle}{Schweizerisches Obligationenrechtes (OR)}
+\providecaptionname{french}{\laworshort}{DO}
 \providecaptionname{french}{\laworfull}{du droit des obligations suisse (CO)}
 \providecaptionname{french}{\laworsingle}{droit des obligations suisse (CO)}
-\providecaptionname{french}{\lawzpo}{CPC}
+\newcounter{de}
+\newcounter{fr}
+
+\DeclareDocumentCommand{\zpo}{ O{} O{} O{} O{} }{\lawabs{20061121}{zpo}[#1][#2][#3][#4]}
+\providecaptionname{ngerman}{\lawzposhort}{ZPO}
+\providecaptionname{ngerman}{\lawzpofull}{der Schweizerischen Zivilprozessordnung (ZPO)}
+\providecaptionname{ngerman}{\lawzposingle}{Schweizerische Zivilprozessordnung (ZPO)}
+\providecaptionname{french}{\lawzposhort}{CPC}
 \providecaptionname{french}{\lawzpofull}{du code de procédure civile suisse (CPC)}
 \providecaptionname{french}{\lawzposingle}{code de procédure civile suisse (CPC)}
-\providecaptionname{french}{\lawstgb}{CP}
+\newcounter{zpode}
+\newcounter{zpofr}
+
+\DeclareDocumentCommand{\stgb}{ O{} O{} O{} O{} O{} }{\lawziff{19370083}{stgb}[#1][#2][#3][#4][#5]}
+\providecaptionname{ngerman}{\lawstgbshort}{StGB}
+\providecaptionname{ngerman}{\lawstgbfull}{des Schweizerischen Strafgesetzbuches (StGB)}
+\providecaptionname{ngerman}{\lawstgbsingle}{Schweizerisches Strafgesetzbuches (StGB)}
+\providecaptionname{french}{\lawstgbshort}{CP}
 \providecaptionname{french}{\lawstgbfull}{du code pénal suisse (CP)}
 \providecaptionname{french}{\lawstgbsingle}{code pénal suisse (CP)}
-\providecaptionname{french}{\lawstpo}{CPP}
+\newcounter{stgbde}
+\newcounter{stgbfr}
+
+\DeclareDocumentCommand{\stpo}{ O{} O{} O{} O{} }{\lawabs{20052319}{stpo}[#1][#2][#3][#4]}
+\providecaptionname{ngerman}{\lawstposhort}{StPO}
+\providecaptionname{ngerman}{\lawstpofull}{der Schweizerischen Strafprozessordnung (StPO)}
+\providecaptionname{ngerman}{\lawstposingle}{Schweizerische Strafprozessordnung (StPO)}
+\providecaptionname{french}{\lawstposhort}{CPP}
 \providecaptionname{french}{\lawstpofull}{du code de procédure pénale suisse (CPP)}
 \providecaptionname{french}{\lawstposingle}{code de procédure pénale suisse (CPP)}
-\providecaptionname{french}{\lawstpo}{LTF}
+\newcounter{stpode}
+\newcounter{stpofr}
+
+\DeclareDocumentCommand{\bgg}{ O{} O{} O{} O{} }{\lawabs{20010204}{bgg}[#1][#2][#3][#4]}
+\providecaptionname{ngerman}{\lawbggshort}{BGG}
+\providecaptionname{ngerman}{\lawbggfull}{des Bundesgesetzes über das Bundesgericht (BGG)}
+\providecaptionname{ngerman}{\lawbggsingle}{Bundesgesetz über das Bundesgericht (BGG)}
+\providecaptionname{french}{\lawstposhort}{LTF}
 \providecaptionname{french}{\lawstpofull}{de la loi sur le Tribunal fédéral (LTF)}
 \providecaptionname{french}{\lawstposingle}{loi sur le Tribunal fédéral (LTF)}
-\providecaptionname{french}{\lawvwvg}{PA}
+\newcounter{bggde}
+\newcounter{bggfr}
+
+\DeclareDocumentCommand{\vwvg}{ O{} O{} O{} O{} }{\lawabs{19680294}{vwvg}[#1][#2][#3][#4]}
+\providecaptionname{ngerman}{\lawvwvgshort}{VwVG}
+\providecaptionname{ngerman}{\lawvwvgfull}{des Bundesgesetzes über das Verwaltungsverfahren (VwVG)}
+\providecaptionname{ngerman}{\lawvwvgsingle}{Bundesgesetz über das Verwaltungsverfahren (VwVG)}
+\providecaptionname{french}{\lawvwvgshort}{PA}
 \providecaptionname{french}{\lawvwvgfull}{de la loi fédérale sur la procédure administrative (PA)}
 \providecaptionname{french}{\lawvwvgsingle}{loi fédérale sur la procédure administrative (PA)}
-\providecaptionname{french}{\lawvgg}{VGG}
+\newcounter{vwvgde}
+\newcounter{vwvgfr}
+
+\DeclareDocumentCommand{\vgg}{ O{} O{} O{} O{} }{\lawabs{20010206}{vgg}[#1][#2][#3][#4]}
+\providecaptionname{ngerman}{\lawvggshort}{VGG}
+\providecaptionname{ngerman}{\lawvggfull}{des Bundesgesetzes über das Bundesverwaltungsgericht (VGG)}
+\providecaptionname{ngerman}{\lawvggsingle}{Bundesgesetz über das Bundesverwaltungsgericht (VGG)}
+\providecaptionname{french}{\lawvggshort}{LTAF}
 \providecaptionname{french}{\lawvggfull}{de la loi sur le Tribunal administratif fédéral (LTAF)}
 \providecaptionname{french}{\lawvggsingle}{loi sur le Tribunal administratif fédéral (LTAF)}
-\providecaptionname{french}{\lawbgo}{LTrans}
+\newcounter{vggde}
+\newcounter{vggfr}
+
+\DeclareDocumentCommand{\bgo}{ O{} O{} O{} O{} }{\lawabs{20022540}{bgo}[#1][#2][#3][#4]}
+\providecaptionname{ngerman}{\lawbgoshort}{BGÖ}
+\providecaptionname{ngerman}{\lawbgofull}{des Bundesgesetzes über das Öffentlichkeitsprinzip der Verwaltung (BGÖ)}
+\providecaptionname{ngerman}{\lawbgosingle}{Bundesgesetz über das Öffentlichkeitsprinzip der Verwaltung (BGÖ)}
+\providecaptionname{french}{\lawbgoshort}{LTrans}
 \providecaptionname{french}{\lawbgofull}{de la loi fédérale sur le principe de la transparence dans l'administration (LTrans)}
 \providecaptionname{french}{\lawbgosingle}{loi fédérale sur le principe de la transparence dans l'administration (LTrans)}
-\providecaptionname{french}{\lawbupf}{LSCPT}
+\newcounter{bgode}
+\newcounter{bgofr}
+
+\DeclareDocumentCommand{\bupf}{ O{} O{} O{} O{} }{\lawabs{20002162}{bupf}[#1][#2][#3][#4]}
+\providecaptionname{ngerman}{\lawbupfshort}{BÜPF}
+\providecaptionname{ngerman}{\lawbupffull}{des Bundesgesetz betreffend die Überwachung des Post- und Fernmeldeverkehrs (BÜPF)}
+\providecaptionname{ngerman}{\lawbupfsingle}{Bundesgesetz betreffend die Überwachung des Post- und Fernmeldeverkehrs (BÜPF)}
+\providecaptionname{french}{\lawbupfshort}{LSCPT}
 \providecaptionname{french}{\lawbupffull}{de la loi fédérale sur la surveillance de la correspondance par poste et télécommunication (LSCPT)}
 \providecaptionname{french}{\lawbupfsingle}{loi fédérale sur la surveillance de la correspondance par poste et télécommunication (LSCPT)}
-\providecaptionname{french}{\lawvupf}{OSCPT}
+\newcounter{bupfde}
+\newcounter{bupffr}
+
+\DeclareDocumentCommand{\vupf}{ O{} O{} O{} O{} }{\lawabs{20002506}{vupf}[#1][#2][#3][#4]}
+\providecaptionname{ngerman}{\lawvupfshort}{VÜPF}
+\providecaptionname{ngerman}{\lawvupffull}{der Verordnung über die Überwachung des Post- und Fernmeldeverkehrs (VÜPF)}
+\providecaptionname{ngerman}{\lawvupfsingle}{Verordnung über die Überwachung des Post- und Fernmeldeverkehrs (VÜPF)}
+\providecaptionname{french}{\lawvupfshort}{OSCPT}
 \providecaptionname{french}{\lawvupffull}{de l'ordonnance sur la surveillance de la correspondance par poste et télécommunication (OSCPT)}
 \providecaptionname{french}{\lawvupfsingle}{ordonnance sur la surveillance de la correspondance par poste et télécommunication (OSCPT)}
-\providecaptionname{french}{\lawdsg}{LPD}
+\newcounter{vupfde}
+\newcounter{vupffr}
+
+\DeclareDocumentCommand{\dsg}{ O{} O{} O{} O{} }{\lawabs{19920153}{dsg}[#1][#2][#3][#4]}
+\providecaptionname{ngerman}{\lawdsgshort}{DSG}
+\providecaptionname{ngerman}{\lawdsgfull}{des Bundesgesetzes über den Datenschutz (DSG)}
+\providecaptionname{ngerman}{\lawdsgsingle}{Bundesgesetz über den Datenschutz (DSG)}
+\providecaptionname{french}{\lawdsgshort}{LPD}
 \providecaptionname{french}{\lawdsgfull}{de la loi fédérale sur la protection des données (LPD)}
 \providecaptionname{french}{\lawdsgsingle}{loi fédérale sur la protection des données (LPD)}
-\providecaptionname{french}{\lawvdsg}{OLPD}
+\newcounter{dsgde}
+\newcounter{dsgfr}
+
+\DeclareDocumentCommand{\vdsg}{ O{} O{} O{} O{} }{\lawabs{19930159}{vdsg}[#1][#2][#3][#4]}
+\providecaptionname{ngerman}{\lawvdsgshort}{VDSG}
+\providecaptionname{ngerman}{\lawvdsgfull}{der Verordnung zum Bundesgesetz über den Datenschutz (VDSG)}
+\providecaptionname{ngerman}{\lawvdsgsingle}{Verordnung zum Bundesgesetz über den Datenschutz (VDSG)}
+\providecaptionname{french}{\lawvdsgshort}{OLPD}
 \providecaptionname{french}{\lawvdsgfull}{de l'ordonnance relative à la loi fédérale sur la protection des données (OLPD)}
 \providecaptionname{french}{\lawvdsgsingle}{ordonnance relative à la loi fédérale sur la protection des données (OLPD)}
-\providecaptionname{french}{\lawbpr}{LDP}
+\newcounter{vdsgde}
+\newcounter{vdsgfr}
+
+\DeclareDocumentCommand{\bpr}{ O{} O{} O{} O{} }{\lawabs{19760323}{bpr}[#1][#2][#3][#4]}
+\providecaptionname{ngerman}{\lawbprshort}{BPR}
+\providecaptionname{ngerman}{\lawbprfull}{des Bundesgesetzes über die politischen Rechte (BPR)}
+\providecaptionname{ngerman}{\lawbprsingle}{Bundesgesetz über die politischen Rechte (BPR)}
+\providecaptionname{french}{\lawbprshort}{LDP}
 \providecaptionname{french}{\lawbprfull}{de la loi fédérale sur les droits politiques (LDP)}
 \providecaptionname{french}{\lawbprsingle}{loi fédérale sur les droits politiques (LDP)}
+\newcounter{bprde}
+\newcounter{bprfr}
 
-\DeclareDocumentCommand{\bv}{ O{} O{} O{} O{} }{\lawabs{19995395}{\lawbv}[#1][#2][#3][#4]}
-\DeclareDocumentCommand{\zgb}{ O{} O{} O{} O{} }{\lawabs{19070042}{\lawzgb}[#1][#2][#3][#4]}
-\DeclareDocumentCommand{\ore}{ O{} O{} O{} O{} }{\lawabs{19110009}{\lawor}[#1][#2][#3][#4]}
-\DeclareDocumentCommand{\zpo}{ O{} O{} O{} O{} }{\lawabs{20061121}{\lawzpo}[#1][#2][#3][#4]}
-\DeclareDocumentCommand{\stgb}{ O{} O{} O{} O{} O{} }{\lawziff{19370083}{\lawstgb}[#1][#2][#3][#4][#5]}
-\DeclareDocumentCommand{\stpo}{ O{} O{} O{} O{} }{\lawabs{20052319}{\lawstpo}[#1][#2][#3][#4]}
-\DeclareDocumentCommand{\bgg}{ O{} O{} O{} O{} }{\lawabs{20010204}{\lawbgg}[#1][#2][#3][#4]}
-\DeclareDocumentCommand{\vwvg}{ O{} O{} O{} O{} }{\lawabs{19680294}{\lawvwvg}[#1][#2][#3][#4]}
-\DeclareDocumentCommand{\vgg}{ O{} O{} O{} O{} }{\lawabs{20010206}{\lawvgg}[#1][#2][#3][#4]}
-\DeclareDocumentCommand{\bgo}{ O{} O{} O{} O{} }{\lawabs{20022540}{\lawbgo}[#1][#2][#3][#4]}
-\DeclareDocumentCommand{\bupf}{ O{} O{} O{} O{} }{\lawabs{20002162}{\lawbupf}[#1][#2][#3][#4]}
-\DeclareDocumentCommand{\vupf}{ O{} O{} O{} O{} }{\lawabs{20002506}{\lawvupf}[#1][#2][#3][#4]}
-\DeclareDocumentCommand{\dsg}{ O{} O{} O{} O{} }{\lawabs{19920153}{\lawdsg}[#1][#2][#3][#4]}
-\DeclareDocumentCommand{\vdsg}{ O{} O{} O{} O{} }{\lawabs{19930159}{\lawvdsg}[#1][#2][#3][#4]}
-\DeclareDocumentCommand{\bpr}{ O{} O{} O{} O{} }{\lawabs{19760323}{\lawbpr}[#1][#2][#3][#4]}
 
-\DeclareDocumentCommand{\emrkf}{ O{} O{} O{} O{} }{\lawziff{19500267}{\lawemrkfull}[#1][#2][#3][#4]}
-\DeclareDocumentCommand{\paktf}{ O{} O{} O{} O{} }{\lawziff{19660262}{\lawpaktfull}[#1][#2][#3][#4]}
-\DeclareDocumentCommand{\bvf}{ O{} O{} O{} O{} }{\lawabs{19995395}{\lawbvfull}[#1][#2][#3][#4]}
-\DeclareDocumentCommand{\zgbf}{ O{} O{} O{} O{} }{\lawabs{19070042}{\lawzgbfull}[#1][#2][#3][#4]}
-\DeclareDocumentCommand{\orf}{ O{} O{} O{} O{} }{\lawabs{19110009}{\laworfull}[#1][#2][#3][#4]}
-\DeclareDocumentCommand{\zpof}{ O{} O{} O{} O{} }{\lawabs{20061121}{\lawzpofull}[#1][#2][#3][#4]}
-\DeclareDocumentCommand{\stgbf}{ O{} O{} O{} O{} O{} }{\lawziff{19370083}{\lawstgbfull}[#1][#2][#3][#4][#5]}
-\DeclareDocumentCommand{\stpof}{ O{} O{} O{} O{} }{\lawabs{20052319}{\lawstpofull}[#1][#2][#3][#4]}
-\DeclareDocumentCommand{\bggf}{ O{} O{} O{} O{} }{\lawabs{20010204}{\lawbggfull}[#1][#2][#3][#4]}
-\DeclareDocumentCommand{\vwvgf}{ O{} O{} O{} O{} }{\lawabs{19680294}{\lawvwvgfull}[#1][#2][#3][#4]}
-\DeclareDocumentCommand{\vggf}{ O{} O{} O{} O{} }{\lawabs{20010206}{\lawvggfull}[#1][#2][#3][#4]}
-\DeclareDocumentCommand{\bgof}{ O{} O{} O{} O{} }{\lawabs{20022540}{\lawbgofull}[#1][#2][#3][#4]}
-\DeclareDocumentCommand{\bupff}{ O{} O{} O{} O{} }{\lawabs{20002162}{\lawbupffull}[#1][#2][#3][#4]}
-\DeclareDocumentCommand{\vupff}{ O{} O{} O{} O{} }{\lawabs{20002506}{\lawvupffull}[#1][#2][#3][#4]}
-\DeclareDocumentCommand{\dsgf}{ O{} O{} O{} O{} }{\lawabs{19920153}{\lawdsgfull}[#1][#2][#3][#4]}
-\DeclareDocumentCommand{\vdsgf}{ O{} O{} O{} O{} }{\lawabs{19930159}{\lawvdsgfull}[#1][#2][#3][#4]}
-\DeclareDocumentCommand{\bprf}{ O{} O{} O{} O{} }{\lawabs{19760323}{\lawbprfull}[#1][#2][#3][#4]}
 
 % ===================================
 % Bundesgerichtsentscheide
@@ -276,7 +312,7 @@
 
 
 % ===================================
-% Zuger Gesetze
+% Zuger kantonales Recht
 % ===================================
 
 \DeclareDocumentCommand{\lawzg}{ m m O{} O{} O{} }{%
@@ -288,6 +324,7 @@
 \DeclareDocumentCommand{\gokrzg}{ O{} O{} O{} }{\lawzg{1310}{GO-KR}[#1][#2][#3]}
 \DeclareDocumentCommand{\gorrzg}{ O{} O{} O{} }{\lawzg{1287}{GO-RR}[#1][#2][#3]}
 \DeclareDocumentCommand{\offgzg}{ O{} O{} O{} }{\lawzg{1327}{ÖffG}[#1][#2][#3]}
+\DeclareDocumentCommand{\ggzg}{ O{} O{} O{} }{\lawzg{1718}{GG}[#1][#2][#3]}
 
 \DeclareDocumentCommand{\kvzgf}{ O{} O{} O{} }{\lawzg{1270}{der Verfassung des Kantons Zug (KV/ZG)}[#1][#2][#3]}
 \DeclareDocumentCommand{\wagzgf}{ O{} O{} O{} }{\lawzg{1286}{des Gesetzes über die Wahlen und Abstimmungen (WAG)}[#1][#2][#3]}
@@ -295,6 +332,7 @@
 \DeclareDocumentCommand{\gokrzgf}{ O{} O{} O{} }{\lawzg{1310}{der Geschäftsordnung des Kantonsrates (GO KR)}[#1][#2][#3]}
 \DeclareDocumentCommand{\gorrzgf}{ O{} O{} O{} }{\lawzg{1287}{der Geschäftsordnung des Regierungsrates (GO RR)}[#1][#2][#3]}
 \DeclareDocumentCommand{\offgzgf}{ O{} O{} O{} }{\lawzg{1327}{des Gesetzes über das Öffentlichkeitsprinzip der Verwaltung (ÖffG)}[#1][#2][#3]}
+\DeclareDocumentCommand{\ggzgf}{ O{} O{} O{} }{\lawzg{1718}{des Gesetzes über die Organisation und die Verwaltung der Gemeinden (GG)}[#1][#2][#3]}
 
 
 % ===================================
