@@ -96,10 +96,10 @@
 \ifthenelse{\equal{#2}{}}{\stepcounter{#1\lang}\ifthenelse{\equal{\value{#1\lang}}{1}}{\lawsingle{#1}}{\lawshort{#1}}}{\stepcounter{#1\lang}\ifthenelse{\equal{\value{#1\lang}}{1}}{\lawfull{#1}}{\lawshort{#1}}}}
 
 \DeclareDocumentCommand{\lawabs}{ m m O{} O{} O{} O{} }{%
-\href{http://www.admin.ch/opc/\articlelanguage/classified-compilation/#1/index.html\#a#3}{\ifthenelse{\equal{#3}{}}{}{\wordart~#3~}\ifthenelse{\equal{#4}{}}{}{\wordabs~#4~}\ifthenelse{\equal{#5}{}}{}{\wordlit~#5~}\ifthenelse{\equal{#6}{}}{}{\wordziff~#6~}\lawname{#2}}}
+\href{http://www.admin.ch/opc/\articlelanguage/classified-compilation/#1/index.html\#a#3}{\ifthenelse{\equal{#3}{}}{}{\wordart~#3~}\ifthenelse{\equal{#4}{}}{}{\wordabs~#4~}\ifthenelse{\equal{#5}{}}{}{\wordlit~#5~}\ifthenelse{\equal{#6}{}}{}{\wordziff~#6~}\lawname{#2}{#3}}}
 
 \DeclareDocumentCommand{\lawziff}{ m m O{} O{} O{} O{} O{} }{%
-\href{http://www.admin.ch/opc/\articlelanguage/classified-compilation/#1/index.html\#a#3}{\ifthenelse{\equal{#3}{}}{}{\wordart~#3~}\ifthenelse{\equal{#4}{}}{}{\wordziff~#4~}\ifthenelse{\equal{#5}{}}{}{\wordabs~#5~}\ifthenelse{\equal{#6}{}}{}{\wordlit~#6~}\ifthenelse{\equal{#7}{}}{}{\wordziff~#7~}\lawname{#2}}}
+\href{http://www.admin.ch/opc/\articlelanguage/classified-compilation/#1/index.html\#a#3}{\ifthenelse{\equal{#3}{}}{}{\wordart~#3~}\ifthenelse{\equal{#4}{}}{}{\wordziff~#4~}\ifthenelse{\equal{#5}{}}{}{\wordabs~#5~}\ifthenelse{\equal{#6}{}}{}{\wordlit~#6~}\ifthenelse{\equal{#7}{}}{}{\wordziff~#7~}\lawname{#2}{#3}}}
 
 
 % ======================================
@@ -108,21 +108,21 @@
 
 \DeclareDocumentCommand{\emrk}{ O{} O{} O{} O{} }{\lawziff{19500267}{emrk}[#1][#2][#3][#4]}
 \providecaptionname{ngerman}{\lawemrkshort}{EMRK}
-\providecaptionname{ngerman}{\lawemrkfull}{der Konvention zum Schutze der Menschenrechte und Grundfreiheiten (EMRK)}
-\providecaptionname{ngerman}{\lawemrksingle}{Konvention zum Schutze der Menschenrechte und Grundfreiheiten (EMRK)}
+\providecaptionname{ngerman}{\lawemrkfull}{EMRK}
+\providecaptionname{ngerman}{\lawemrksingle}{EMRK}
 \providecaptionname{french}{\lawemrkshort}{CEDH}
-\providecaptionname{french}{\lawemrkfull}{de la convention de sauvegarde des droits de l'homme et des libertés fondamentales (CEDH)}
-\providecaptionname{french}{\lawemrksingle}{convention de sauvegarde des droits de l'homme et des libertés fondamentales (CEDH)}
+\providecaptionname{french}{\lawemrkfull}{CEDH}
+\providecaptionname{french}{\lawemrksingle}{CEDH}
 \newcounter{emrkde}
 \newcounter{emrkfr}
 
 \DeclareDocumentCommand{\pakt}{ O{} O{} O{} O{} }{\lawziff{19660262}{pakt}[#1][#2][#3][#4]}
 \providecaptionname{ngerman}{\lawpaktshort}{UNO-Pakt II}
-\providecaptionname{ngerman}{\lawpaktfull}{des Internationalen Paktes über bürgerliche und politische Rechte (UNO-Pakt II)}
-\providecaptionname{ngerman}{\lawpaktsingle}{Internationale Pakt über bürgerliche und politische Rechte (UNO-Pakt II)}
+\providecaptionname{ngerman}{\lawpaktfull}{des Internationalen Paktes vom 16. Dezember 1966 über bürgerliche und politische Rechte (SR 0.103.2; nachfolgend: UNO-Pakt II)}
+\providecaptionname{ngerman}{\lawpaktsingle}{Internationale Pakt vom 16. Dezember 1966 über bürgerliche und politische Rechte (SR 0.103.2; nachfolgend: UNO-Pakt II)}
 \providecaptionname{french}{\lawpaktshort}{Pacte ONU II}
-\providecaptionname{french}{\lawpaktfull}{du pacte international relatif aux droits civils et politiques (Pacte ONU II)}
-\providecaptionname{french}{\lawpaktsingle}{pacte international relatif aux droits civils et politiques (Pacte ONU II)}
+\providecaptionname{french}{\lawpaktfull}{du pacte international du 16 décembre 1966 relatif aux droits civils et politiques (RS 0.103.2; ci-aprés: Pacte ONU II)}
+\providecaptionname{french}{\lawpaktsingle}{pacte international du 16 décembre 1966 relatif aux droits civils et politiques (RS 0.103.2; ci-aprés: Pacte ONU II)}
 \newcounter{paktde}
 \newcounter{paktfr}
 
